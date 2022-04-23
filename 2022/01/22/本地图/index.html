@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>数据结构 | 嗨害嗨</title><meta name="author" content="Demo"><meta name="copyright" content="Demo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="线性表具有相同数据类型的n个 数据元素的有限序列。 n为表长，n&#x3D;0时线性表是空表  linear list 基本操作123456789101112131415161718192021InitList(&amp;L)DestoryList(&amp;L)    &#x2F;&#x2F;ListInsert(&amp;L,i,e)ListDelete(&amp;L,i,&amp;e)	&#x2F;&#x2F;删除表L中第i个位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="http://example.com/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/index.html">
+<meta property="og:site_name" content="嗨害嗨">
+<meta property="og:description" content="线性表具有相同数据类型的n个 数据元素的有限序列。 n为表长，n&#x3D;0时线性表是空表  linear list 基本操作123456789101112131415161718192021InitList(&amp;L)DestoryList(&amp;L)    &#x2F;&#x2F;ListInsert(&amp;L,i,e)ListDelete(&amp;L,i,&amp;e)	&#x2F;&#x2F;删除表L中第i个位置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-01-22T10:21:33.000Z">
+<meta property="article:modified_time" content="2022-04-23T09:52:48.254Z">
+<meta property="article:author" content="Demo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '数据结构',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-23 17:52:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="嗨害嗨" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">嗨害嗨</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">数据结构</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-22T10:21:33.000Z" title="发表于 2022-01-22 18:21:33">2022-01-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-23T09:52:48.254Z" title="更新于 2022-04-23 17:52:48">2022-04-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="数据结构"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><p>具有<strong>相同数据类型</strong>的n个 数据元素的<strong>有限</strong>序列。</p>
+<p>n为表长，n&#x3D;0时线性表是空表</p>
+<p><img src="/images/image-20220110221153030.png" alt="image-20220110221153030"></p>
+<p><strong>linear list</strong></p>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">InitList(&amp;L)</span><br><span class="line"></span><br><span class="line">DestoryList(&amp;L)</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line"></span><br><span class="line">ListInsert(&amp;L,i,e)</span><br><span class="line"></span><br><span class="line">ListDelete(&amp;L,i,&amp;e)</span><br><span class="line">	<span class="comment">//删除表L中第i个位置的元素，并用e返回删除元素的值</span></span><br><span class="line">	</span><br><span class="line">LocateElem(L,e)	</span><br><span class="line">	<span class="comment">//按照值来进行查找</span></span><br><span class="line">	</span><br><span class="line">GetElem(L,i)</span><br><span class="line">	<span class="comment">//按位查找操作</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment">//其他的</span></span><br><span class="line">Length(L)</span><br><span class="line">PrintList(L)</span><br><span class="line">Empty(L)</span><br></pre></td></tr></table></figure>
+
+<p>对修改结果需要带回来，要加入对参数的引用  <strong>&amp;</strong></p>
+<h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><p>（用顺序存储来实现的 线性表）</p>
+<p><strong>顺序存储</strong>：逻辑上相邻的元素，在物理位置上也相邻</p>
+<p>一个整数  int    4B  4个字节</p>
+<h4 id="顺序表的定义"><a href="#顺序表的定义" class="headerlink" title="顺序表的定义"></a>顺序表的定义</h4><h5 id="静态分配"><a href="#静态分配" class="headerlink" title="静态分配"></a>静态分配</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> data[MaxSize];</span><br><span class="line">	<span class="type">int</span> Length;</span><br><span class="line">&#125;SqList;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">initList</span><span class="params">(SqList&amp; L)</span> &#123;</span><br><span class="line">	L.Length = <span class="number">0</span>;<span class="comment">//初始化 长度为0</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; MaxSize; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		L.data[i] = i;</span><br><span class="line">		L.Length++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>先规定了数组的大小，不能变化。</p>
+<h5 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h5><p>​				<strong>malloc</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L.data = (ElemType*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ElemType)*InitSize);</span><br></pre></td></tr></table></figure>
+
+<p>申请一片连续存储空间，并返回一个指向内存首部的指针。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span>* data;   <span class="comment">//指向动态分配的指针</span></span><br><span class="line">	<span class="type">int</span> MaxSize;<span class="comment">//顺序表最大容量</span></span><br><span class="line">	<span class="type">int</span> length;<span class="comment">//当前有数据元素的长度</span></span><br><span class="line">&#125;SeqList;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">initlist</span><span class="params">(SeqList&amp; l)</span> &#123;</span><br><span class="line">	l.data = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * InitSize);</span><br><span class="line">	l.length = <span class="number">0</span>;</span><br><span class="line">	l.MaxSize = InitSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">IncreaseSize</span><span class="params">(SeqList&amp; L, <span class="type">int</span> len)</span> &#123;<span class="comment">//动态增加表的长度</span></span><br><span class="line">	<span class="type">int</span>* p = L.data;</span><br><span class="line">	L.data = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="type">int</span>) * (L.MaxSize + len));</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; L.length; i++)</span><br><span class="line">		L.data[i] = p[i];</span><br><span class="line">	L.MaxSize = L.MaxSize + len;</span><br><span class="line">	<span class="built_in">free</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">	SeqList L;</span><br><span class="line">	initlist(L);</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">	IncreaseSize(L, <span class="number">5</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
+<li>随机访问 O（1）可以找到元素</li>
+<li>插入移动元素不方便</li>
+<li>存储密度高 ，每个节点只存储数据元素</li>
+<li>拓展容量不方便</li>
+</ul>
+<p><img src="/images/image-20220111110822120.png" alt="image-20220111110822120"></p>
+<h4 id="顺序表的插入删除"><a href="#顺序表的插入删除" class="headerlink" title="顺序表的插入删除"></a>顺序表的插入删除</h4><h5 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">ListInsert</span><span class="params">(sqlist&amp; L, <span class="type">int</span> i, <span class="type">int</span> e)</span> &#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = L.length; j &gt;= i; j--)&#123;</span><br><span class="line">		L.data[j] = L.data[j - <span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i - <span class="number">1</span>] = e;</span><br><span class="line">	L.length++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//增加了健壮性   多了几个判断的操作 </span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">ListInsert</span><span class="params">(sqlist&amp; L, <span class="type">int</span> i, <span class="type">int</span> e)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;i||i&gt;L.length+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(L.length&gt;=MaxSize)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = L.length; j &gt;= i; j--)&#123;</span><br><span class="line">		L.data[j] = L.data[j - <span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">	L.data[i - <span class="number">1</span>] = e;</span><br><span class="line">	L.length++;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>最好情况 O（1）</p>
+<p>最差情况O（n）</p>
+<p>平均情况<br>$$<br>\frac{1}{n+1}*(1+2+…+n)&#x3D; \<br>\frac{(1+n)*n}{2}*\frac{1}{n+1}&#x3D;\<br>\frac{n}{2}<br>$$</p>
+<p><img src="/images/image-20220111131809457.png" alt="image-20220111131809457"></p>
+<h5 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">ListDelete</span><span class="params">(Sqlist &amp;L,<span class="type">int</span> i,<span class="type">int</span> &amp;e)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;L.length)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	e=L.data[i<span class="number">-1</span>];</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;L.length;j++)</span><br><span class="line">		L.data[j<span class="number">-1</span>]=L.data[j];</span><br><span class="line">	L.length--;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  e 用了引用</span></span><br></pre></td></tr></table></figure>
+
+<p>最好情况 O(1)</p>
+<p>最差情况O(n)</p>
+<p>平均<br>$$<br>\frac{1}{n}*(1+2+…+n-1)&#x3D; \<br>\frac{(n-1)*n}{2}*\frac{1}{n}&#x3D;\<br>\frac{n-1}{2}<br>$$<br><img src="/images/image-20220111132307171.png" alt="image-20220111132307171"></p>
+<p><img src="/images/image-20220111132336073.png" alt="image-20220111132336073"></p>
+<h4 id="顺序表的查找"><a href="#顺序表的查找" class="headerlink" title="顺序表的查找"></a>顺序表的查找</h4><h5 id="按位查找"><a href="#按位查找" class="headerlink" title="按位查找"></a>按位查找</h5><p>静态分配</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ElemType <span class="title function_">GetElem</span><span class="params">(Sqlist L,<span class="type">int</span> i)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> L.data[i<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>动态分配</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//是一样的</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span> data[maxsize];</span><br><span class="line">	<span class="type">int</span> length;</span><br><span class="line">&#125;sqlist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="type">int</span>* data;   <span class="comment">//指向动态分配的指针</span></span><br><span class="line">	<span class="type">int</span> MaxSize;<span class="comment">//顺序表最大容量</span></span><br><span class="line">	<span class="type">int</span> length;<span class="comment">//当前有数据元素的长度</span></span><br><span class="line">&#125;SeqList;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度 O(1)</p>
+<p>随机存取的特性，连续存放，类型一致</p>
+<h5 id="按值查找"><a href="#按值查找" class="headerlink" title="按值查找"></a>按值查找</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">LocateElem</span><span class="params">(SeqList L,<span class="type">int</span> e)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;L.length;i++)</span><br><span class="line">		<span class="keyword">if</span>(L.data[i]==e)</span><br><span class="line">			<span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查找的 时间复杂度</p>
+<p>最好情况：O（1）</p>
+<p>最差情况：O（n）</p>
+<p>平均情况：<br>$$<br>\frac{1}{n}*(1+2+…+n)&#x3D; \<br>\frac{(n+1)*n}{2}*\frac{1}{n}&#x3D;\<br>\frac{n+1}{2}<br>$$<br><img src="/images/image-20220111133536860.png" alt="image-20220111133536860"></p>
+<h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><ul>
+<li>不要求大片空间 改变容量方便</li>
+<li>不支持随机存取</li>
+</ul>
+<h4 id="单链表定义"><a href="#单链表定义" class="headerlink" title="单链表定义"></a>单链表定义</h4><p>typedef  &lt;数据类型&gt; &lt;别名&gt;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	Elemdata data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>  *<span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,*LinkList;</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">	Elemdata data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>  *<span class="title">next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> <span class="title">LNode</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">LinkList</span>;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>不带头节点的单链表</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InitList</span><span class="params">(LinkList &amp;L)</span>&#123;</span><br><span class="line">	L = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//空表，暂时还没有任何节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>带头结点的单链表</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InitList</span><span class="params">(LinkList &amp;L)</span>&#123;</span><br><span class="line">	L=(LNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line"><span class="comment">//分配一个头节点</span></span><br><span class="line">	<span class="keyword">if</span>(L==<span class="literal">NULL</span>)<span class="comment">//分配失败</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/images/image-20220111135118882.png" alt="image-20220111135118882"></p>
+<p>总结</p>
+<p><img src="/images/image-20220111135144982.png" alt="image-20220111135144982"></p>
+<h3 id="链表的操作"><a href="#链表的操作" class="headerlink" title="链表的操作"></a>链表的操作</h3><h4 id="插入-1"><a href="#插入-1" class="headerlink" title="插入"></a>插入</h4><p><em>按照位置</em></p>
+<p><strong>带头结点</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">ListInsert</span><span class="params">(LinkList &amp;L,<span class="type">int</span> i,ElemType e)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *p;</span><br><span class="line">    <span class="type">int</span> j=<span class="number">0</span>;<span class="comment">//此时p指向的链表中的第几项</span></span><br><span class="line">    p=L;    <span class="comment">//一开始指向头节点</span></span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;j&lt;i<span class="number">-1</span>)&#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;       <span class="comment">//整一个循环，使p指向第i-1个结点</span></span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>) <span class="comment">//i值不合法</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *s = (LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    s-&gt;data=e;</span><br><span class="line">    s-&gt;next=p-&gt;next;</span><br><span class="line">    p-&gt;next=s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220111152734939.png" alt="image-20220111152734939"></p>
+<p><strong>不带头节点的后插</strong></p>
+<p>此时第一个节点是有数据的</p>
+<p>要分情况</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (i==<span class="number">1</span>)&#123;</span><br><span class="line">    LNode *s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    s-&gt;data=e;</span><br><span class="line">    s-&gt;next=L;</span><br><span class="line">    L=s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    LNode *p;</span><br><span class="line">    <span class="type">int</span> j=<span class="number">1</span>;</span><br><span class="line">    p=L;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;j&lt;i<span class="number">-1</span>)&#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    </span><br><span class="line">    s-&gt;data=e;</span><br><span class="line">    s-&gt;next=p-&gt;next;</span><br><span class="line">    p-&gt;next=s;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>指定节点的前插操作</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertPriorNode</span><span class="params">(LNode *p,ElemType e)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    s-&gt;next=p-&gt;next;</span><br><span class="line">    p-&gt;next=s;	<span class="comment">//将新节点s连在p之后</span></span><br><span class="line">    s-&gt;data=p-&gt;data;  <span class="comment">//p原来的值赋给s</span></span><br><span class="line">    p-&gt;data=e;		<span class="comment">//把要添加的值给p	</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除-1"><a href="#删除-1" class="headerlink" title="删除"></a>删除</h4><p><strong>按照位序删除</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LinkDelete</span><span class="params">(LinkList &amp;L,<span class="type">int</span> i,ElemType &amp;e)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (i&lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *p;</span><br><span class="line">    <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">    p=L;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;j&lt;i<span class="number">-1</span>)&#123;</span><br><span class="line">        j++;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)   <span class="comment">//i值不合法</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;next==<span class="literal">NULL</span>)  <span class="comment">//第i-1个结点之后没有节点了</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *q=p-&gt;next;</span><br><span class="line">    e=q-&gt;data;</span><br><span class="line">    p-&gt;next=q-&gt;next;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">free</span>(q)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除指定节点</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//前提是 要删除的不是最后一个节点。</span></span><br><span class="line"><span class="comment">//否则就要从头开始求了</span></span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">DeleteNode</span><span class="params">(LNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LNode *q=p-&gt;next;	<span class="comment">//借助了一个中继节点</span></span><br><span class="line">    p-&gt;data=q-&gt;data;	<span class="comment">//</span></span><br><span class="line">    p-&gt;next=q-&gt;next;	<span class="comment">//把*q从链中断开</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">free</span>(q)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p><strong>位置</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">LNode *<span class="title function_">GetElem</span><span class="params">(LinkList L,<span class="type">int</span> i)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;<span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    LNode *p;</span><br><span class="line">    <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">    p=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> &amp;&amp; j&lt;i<span class="number">-1</span>)&#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>值</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LNode * <span class="title function_">LocateElem</span><span class="params">(LinkList L,ElemType e)</span>&#123;</span><br><span class="line">	LNode *p = L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span> &amp;&amp; p-&gt;data!=e)</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="建立"><a href="#建立" class="headerlink" title="建立"></a>建立</h4><ul>
+<li>初始化一个链表</li>
+<li>每次取一个数据元素，插入到尾部或头部</li>
+</ul>
+<p><strong>尾插法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">LinkList <span class="title function_">List_Tailinsert</span><span class="params">(LinkList &amp;L)</span>&#123;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    L=(LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode)); <span class="comment">//建立头节点</span></span><br><span class="line">    LNode *s,*r=L;		<span class="comment">//r为表尾指针</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">9999</span>)&#123;</span><br><span class="line">        s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        </span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        r-&gt;next=s;</span><br><span class="line">        r=s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>头插法</strong>(带头节点)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">LinkList <span class="title function_">List_HeadInsert</span><span class="params">(LinkList &amp;L)</span>&#123;</span><br><span class="line">    LNode *s;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    L=(LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">9999</span>)&#123;</span><br><span class="line">    	s=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        s-&gt;next=L-&gt;next;</span><br><span class="line">        L-&gt;next=s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">DNode</span> *<span class="title">prior</span>,*<span class="title">next</span>;</span></span><br><span class="line">&#125;DNode,*DLinkList;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="**初始化 **"></a>**初始化 **</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InitDLinkList</span><span class="params">(DLinkList &amp;L)</span>&#123;</span><br><span class="line">    L=(DNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(DNode));</span><br><span class="line">    <span class="keyword">if</span>(L==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    L-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    L-&gt;prior=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    DLinkList L;</span><br><span class="line">    InitDLinkList(L);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220112123356508.png" alt="image-20220112123356508"></p>
+<p><strong>p节点后插入s结点</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">InsertNextDNode</span><span class="params">(DNode *p,Dnode *s)</span>&#123;</span><br><span class="line">    s-&gt;next=p-&gt;next; <span class="comment">//</span></span><br><span class="line">    s-&gt;prior=p;</span><br><span class="line">    p-&gt;next-&gt;poior=s;</span><br><span class="line">    p-&gt;next=s</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> InsertNextDNode(DNode *p,Dnode *s)&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>||s==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    </span><br><span class="line">    s-&gt;next=p-&gt;next; <span class="comment">//</span></span><br><span class="line">    <span class="keyword">if</span> (p-&gt;next!=<span class="literal">NULL</span>)	<span class="comment">//如果p之后又有后继节点</span></span><br><span class="line">         p-&gt;next-&gt;poior=s;</span><br><span class="line">    </span><br><span class="line">    s-&gt;prior=p;</span><br><span class="line">    p-&gt;next=s;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/images/image-20220112131556592.png" alt="image-20220112131556592"></p>
+<p><img src="/images/image-20220112132505297.png" alt="image-20220112132505297"></p>
+<h3 id="删除-2"><a href="#删除-2" class="headerlink" title="删除"></a>删除</h3><p>删除p的后继节点</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">DeleteNextDNode</span><span class="params">(DNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>||p-&gt;next==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    DNode *q=p-&gt;next;</span><br><span class="line">    p-&gt;next=q-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(q-&gt;next!=<span class="literal">NULL</span>)<span class="comment">//  删的不是最后一个结点</span></span><br><span class="line">    	q-&gt;next-&gt;poior=p;</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220112133313926.png" alt="image-20220112133313926"></p>
+<h2 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h2><h3 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LNode,LinkList;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> <span class="title function_">InitLinkList</span><span class="params">(&amp;L)</span>&#123;</span><br><span class="line">    L=(LNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    <span class="keyword">if</span>(L==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    L-&gt;next=L;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>循环双链表</strong></p>
+<p><img src="/images/image-20220112134230784.png" alt="image-20220112134230784"></p>
+<h2 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h2><p>分配一整片连续的内存空间，各个结点集中安置。</p>
+<p><img src="/images/image-20220112134604670.png" alt="image-20220112134604670"></p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 10 <span class="comment">//最大长度</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="type">int</span> next;   <span class="comment">//下一个元素的下标</span></span><br><span class="line">&#125;SLinkList[MaxSize];</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220112152155459.png" alt="image-20220112152155459"></p>
+<p> 右边是 下一个的位置</p>
+<p><img src="/images/image-20220112152614933.png" alt="image-20220112152614933"></p>
+<h2 id="顺序表-amp-链表"><a href="#顺序表-amp-链表" class="headerlink" title="顺序表&amp;链表"></a>顺序表&amp;链表</h2><ul>
+<li><p>都是线性表，线性结构</p>
+</li>
+<li><p>顺序表：顺序存储</p>
+<ul>
+<li>随机存取，密度高（只存数据），</li>
+<li>要求一块连续的空间。</li>
+</ul>
+</li>
+<li><p>链表：链式存储</p>
+<ul>
+<li>离散的小空间，分配方便</li>
+<li>改变容量方便，不能随机存取，</li>
+<li>有指针，存储密度低。</li>
+</ul>
+</li>
+</ul>
+<p><strong>操作</strong></p>
+<ul>
+<li>创建&amp;销毁<ul>
+<li>顺序表：分配大片空间<ul>
+<li>静态\动态</li>
+</ul>
+</li>
+<li>链表：分配一个头节点\头指针</li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/image-20220112153455037.png" alt="image-20220112153455037"></p>
+<ul>
+<li><p><strong>增删</strong>改<strong>查</strong></p>
+</li>
+<li><p>增</p>
+<ul>
+<li>顺序表：插入\删除时，所以元素都要移动O（n）</li>
+<li>链表：只需要修改真正的结点O(n)</li>
+</ul>
+<p><img src="/images/image-20220112153823152.png" alt="image-20220112153823152"></p>
+</li>
+</ul>
+<h1 id="栈-队列"><a href="#栈-队列" class="headerlink" title="栈 队列"></a>栈 队列</h1><p>  只允许在一端进行插入或删除操作的 <strong>线性表</strong></p>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><p>后进先出（LIFO）</p>
+<h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InitStack(&amp;S) </span><br><span class="line">DestroyStack(&amp;L)</span><br><span class="line"></span><br><span class="line">Push(&amp;S,x)</span><br><span class="line">Pop(&amp;S,&amp;x)</span><br><span class="line">    </span><br><span class="line">GetTop(S,&amp;x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>n个不同的元素进栈，那么合法的出栈顺序\frac{1}{n+1}*C_{2n}^{n}<br>$$</p>
+<h3 id="顺序栈"><a href="#顺序栈" class="headerlink" title="顺序栈"></a>顺序栈</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="type">int</span> top;</span><br><span class="line">&#125;Sqstack;</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化-2"><a href="#初始化-2" class="headerlink" title="初始化"></a><strong>初始化</strong></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">InitStack</span><span class="params">(SqStack &amp;S)</span>&#123;</span><br><span class="line">	<span class="type">int</span> top=<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="进栈"><a href="#进栈" class="headerlink" title="进栈"></a><strong>进栈</strong></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">Push</span><span class="params">(SqStack &amp;S,ElemType e)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top==MaxSize<span class="number">-1</span>)<span class="comment">//栈满 报错</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	S.top++;           <span class="comment">//指针++</span></span><br><span class="line">	S.data[S.top]=e;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220112161318695.png" alt="image-20220112161318695"></p>
+<h4 id="出栈"><a href="#出栈" class="headerlink" title="出栈"></a><strong>出栈</strong></h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">Pop</span><span class="params">(SqStack &amp;S,ElemType &amp;x)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (S.top==<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    x=S.data[S.top];</span><br><span class="line">    S.top--;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/images/image-20220112161621264.png" alt="image-20220112161621264"></p>
+<h4 id="读元素"><a href="#读元素" class="headerlink" title="读元素"></a>读元素</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">GetTop</span><span class="params">(SqStack S,ElemType &amp;x)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top==<span class="number">-1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	x=S.data[S.top];</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="共享栈"><a href="#共享栈" class="headerlink" title="共享栈"></a>共享栈</h4><p><img src="/images/image-20220112162137766.png" alt="image-20220112162137766"></p>
+<h3 id="链栈"><a href="#链栈" class="headerlink" title="链栈"></a>链栈</h3><p>用链式存储方式整的栈</p>
+<p><strong>定义</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;*LiStack;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="进栈-1"><a href="#进栈-1" class="headerlink" title="进栈"></a>进栈</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">Pop</span><span class="params">(LiStack &amp;S,Elemtype x)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S=<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    LinkNode *q=(LiStack*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LiStack));</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(q==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    q-&gt;data=x;</span><br><span class="line">    q-&gt;next=S-&gt;next;</span><br><span class="line">    s-&gt;next=q;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;  <span class="comment">//有头节点</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>只允许在一端进行插入，在另一端删除的线性表</p>
+<p>先进先出（FIFO）</p>
+<p><strong>基本操作</strong></p>
+<p><img src="/images/image-20220112164920856.png" alt="image-20220112164920856"></p>
+<h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><h4 id="初始化-3"><a href="#初始化-3" class="headerlink" title="初始化"></a>初始化</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="type">int</span> front,rear;  <span class="comment">//队头指针和队尾指针</span></span><br><span class="line">&#125;SqQueue;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">InitQueue</span><span class="params">(SqQueue &amp;Q)</span>&#123;</span><br><span class="line">    Q.rear=<span class="number">0</span>;</span><br><span class="line">    Q.front=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="入队"><a href="#入队" class="headerlink" title="入队"></a>入队</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">EnQueue</span><span class="params">(SqQueue &amp;Q,ElemType x)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( (Q.rear+<span class="number">1</span>)%MaxSize == Q.front)<span class="comment">//队满</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	Q.data[Q.rear]=x;</span><br><span class="line">	Q.rear=(Q.rear+<span class="number">1</span>)%MaxSize;   <span class="comment">//队尾指针加一取模</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="出队"><a href="#出队" class="headerlink" title="出队"></a>出队</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">DnQueue</span><span class="params">(SqQueue &amp;Q,ElemType &amp;x)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>( Q.rear == Q.front)<span class="comment">//对空</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	x=Q.data[Q.front];</span><br><span class="line">	Q.front=(Q.front+<span class="number">1</span>)%MaxSize;   <span class="comment">//队尾指针加一取模</span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>计算队列中数据</p>
+<p>牺牲一个数据<br>$$<br>（rear+MaxSize-front）% MaxSize<br>$$<br><img src="/images/image-20220112185012050.png" alt="image-20220112185012050"></p>
+<p><strong>方式二：</strong>结构体多了个  size</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="type">int</span> front,rear;</span><br><span class="line">	<span class="type">int</span> size;  <span class="comment">//表示当前队列长度</span></span><br><span class="line">&#125;SeQueue;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	ElemType data[MaxSize];</span><br><span class="line">	<span class="type">int</span> front,rear;</span><br><span class="line">	<span class="type">int</span> tag;  <span class="comment">//0表示当前删除成功，1表示当前插入成功</span></span><br><span class="line">&#125;SeQueue;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>方案三</strong> 加入tag</p>
+<p><img src="/images/image-20220112185333098.png" alt="image-20220112185333098"></p>
+<h3 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    LinkNode *front,*rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h3><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="括号匹配"><a href="#括号匹配" class="headerlink" title="括号匹配"></a>括号匹配</h3><p>从左往右 一次扫描</p>
+<p>遇到左括号就 入栈，遇到右括号就弹出栈中的其中一个与之匹配</p>
+<p><img src="/images/image-20220123213052021.png" alt="image-20220123213052021"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">bracketCheck</span><span class="params">(<span class="type">char</span> str[],<span class="type">int</span> length)</span>&#123;</span><br><span class="line">    SqlStack S;</span><br><span class="line">    InitStack(S);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;length;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(str[i]==<span class="string">&quot;(&quot;</span>||str[i]==<span class="string">&quot;[]&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Push(S,str[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(Empty(S))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">char</span> topElem;</span><br><span class="line">            Pop(S,topElem);</span><br><span class="line">            <span class="keyword">if</span>(str[i]!=topElem)<span class="comment">//要用字符串相等的函数</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;    </span><br><span class="line">        	&#125;   </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Empty(S);</span><br><span class="line">    </span><br><span class="line">&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h3><ul>
+<li>运算符在操作符的位置 <ul>
+<li>前缀、中缀、后缀</li>
+</ul>
+</li>
+</ul>
+<p>后缀：左优先</p>
+<p>前缀：右优先</p>
+<p><strong>计算</strong></p>
+<p>栈实现后缀表达式</p>
+<ul>
+<li>从左往右依次扫描，直到扫描完所有的</li>
+<li>扫描到操作数就压入栈，回到1，否则到3</li>
+<li>扫描到运算符，弹出两个栈顶元素进行计算，运算结果压入栈，回到1</li>
+</ul>
+<p>栈实现前缀表达式</p>
+<ul>
+<li>从右往左依次扫描，直到扫描完所有的</li>
+<li>扫描到操作数就压入栈，回到1，否则到3</li>
+<li>扫描到运算符，弹出两个栈顶元素进行计算，运算结果压入栈，回到1</li>
+</ul>
+<p><strong>转化</strong></p>
+<h3 id="函数递归"><a href="#函数递归" class="headerlink" title="函数递归"></a>函数递归</h3><h3 id="队列应用"><a href="#队列应用" class="headerlink" title="队列应用"></a>队列应用</h3><h1 id="串"><a href="#串" class="headerlink" title="串"></a>串</h1><p>字符串：由零个或多个字符组成的有限序列。</p>
+<p>一般记作<br>$$<br>S&#x3D;’a_1a_2a_3···’<br>$$<br>从1开始</p>
+<p><strong>基本操作</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">StrAssign(&amp;T,chars) <span class="comment">//赋值操作</span></span><br><span class="line">StrCopy(&amp;T,S)<span class="comment">//串S复制得到T</span></span><br><span class="line">StrEmpty(S)</span><br><span class="line">StrLength(S)</span><br><span class="line">ClearString(&amp;S)<span class="comment">//清空字符串</span></span><br><span class="line">DestoryString(&amp;S)<span class="comment">//销毁串，回收存储空间</span></span><br><span class="line">ConCat(&amp;T,S1,S2)<span class="comment">//串链接，由T返回S1，S2组成的新串</span></span><br><span class="line">    </span><br><span class="line">SubString(&amp;Sub,S,pos,len) <span class="comment">//求字串</span></span><br><span class="line">Index(S,T)<span class="comment">//看T在S的第一次出现的位置</span></span><br><span class="line"></span><br><span class="line">StrCompare(S,T)<span class="comment">//比较操作，字典排序</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXLEN 10</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> ch[MAXLEN];</span><br><span class="line">    <span class="type">int</span> length;</span><br><span class="line">&#125;SString;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>求字串</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="title function_">SubString</span><span class="params">(SString &amp;Sub,SString S,<span class="type">int</span> pos,<span class="type">int</span> len)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(pos+len<span class="number">-1</span>)&gt;S.length</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=pos;i&lt;pos+len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        Sub.ch[i-pos+<span class="number">1</span>] = S.ch[i];</span><br><span class="line">    &#125;</span><br><span class="line">    Subs.len = len;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>比较大小</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">StrCompare</span><span class="params">(SString S,SSTring T)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=S.length &amp;&amp; i&lt;=T.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(S.ch[i]!=T.ch[i])</span><br><span class="line">            <span class="keyword">return</span> S.ch[i] - T.ch[i];</span><br><span class="line">    &#125;	</span><br><span class="line">    <span class="keyword">return</span> S.length - T.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>定位</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">Index</span><span class="params">(SString S,SString T)</span>&#123;</span><br><span class="line">	<span class="type">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> n=StrLength(S);</span><br><span class="line">    <span class="type">int</span> m=StrLength(T);</span><br><span class="line">    SString	sub;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=n-m+<span class="number">1</span>)&#123;</span><br><span class="line">        SubString(sub,S,i,m);</span><br><span class="line">        <span class="keyword">if</span>(StrCompare(sub,T)!=<span class="number">0</span>)</span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h2><h3 id="朴素模式匹配算法"><a href="#朴素模式匹配算法" class="headerlink" title="朴素模式匹配算法"></a>朴素模式匹配算法</h3><p>O(m*n)</p>
+<p>匹配 n-m+1个 字串</p>
+<p>一个个 比较</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">Index</span><span class="params">(SString S,SString T)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=S.length&amp;&amp;j&lt;=T.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(S.ch[i]==T.ch[j])</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            i=i-j+<span class="number">2</span>;</span><br><span class="line">            j=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j&gt;T.length)</span><br><span class="line">        <span class="keyword">return</span> i-T.length;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>双index</p>
+<p>退出条件，子串index大于其长度。</p>
+<h3 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h3><p>O(m+n)</p>
+<p><img src="/images/image-20220125103338627.png" alt="image-20220125103338627"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">Index_KMP</span><span class="params">(SString S,SString T,<span class="type">int</span> next[])</span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=S.length&amp;&amp;j&lt;=T.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span>||S.ch[i]==T.ch[i])&#123;</span><br><span class="line">            ++i;++j;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j=next[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j&gt;T.length)</span><br><span class="line">        <span class="keyword">return</span> i-T.length;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>主子串指针 不回溯</p>
+<p><strong>求next 数组</strong></p>
+<p><img src="/images/image-20220407152220260.png" alt="image-20220407152220260"></p>
+<p>get_next</p>
+<p>伪代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">get_next</span><span class="params">(string s)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> i=<span class="number">1</span>,j=<span class="number">0</span>;</span><br><span class="line">    next[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;s.length)&#123;</span><br><span class="line">        <span class="keyword">if</span>&#123;(j==<span class="number">0</span>||s[i]==s[j])&#123;</span><br><span class="line">            ++i;</span><br><span class="line">            ++j;</span><br><span class="line">            next[i]=j;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">           <span class="keyword">else</span>&#123;</span><br><span class="line">               j=next[j];</span><br><span class="line">           &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="常考性质"><a href="#常考性质" class="headerlink" title="常考性质"></a>常考性质</h2><ul>
+<li><p>$$<br>节点数&#x3D;总度数+1<br>$$</p>
+</li>
+<li><p>$$<br>度为m的树第i层最多有m^(i-1)个结点<br>$$</p>
+</li>
+<li><p>$$<br>高为h的m叉树最多有\frac{m^h-1}{m-1}个结点<br>$$</p>
+</li>
+<li><p>$$<br>具有n个结点的m叉树最小高度为\lceil log_m(n(m-1)+1) \rceil<br>$$</p>
+</li>
+</ul>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ul>
+<li>每个结点最多两个子树</li>
+<li>左右子树不能颠倒</li>
+<li>有序树</li>
+</ul>
+<h3 id="特殊二叉树"><a href="#特殊二叉树" class="headerlink" title="特殊二叉树"></a>特殊二叉树</h3><p><img src="/images/image-20220125150247498.png" alt="image-20220125150247498"></p>
+<p>  <strong>二叉排序树</strong></p>
+<ul>
+<li>左子树上<strong>所有</strong>节点小于根节点</li>
+<li>右子树上<strong>所有</strong>节点大于根节点</li>
+<li>左右子树各是一课二叉排序树</li>
+</ul>
+<p><strong>平衡二叉树</strong></p>
+<p>  树上任一结点的左子树和右子树的深度之差不超过1。</p>
+<h3 id="常考性质-1"><a href="#常考性质-1" class="headerlink" title="常考性质"></a>常考性质</h3><ul>
+<li><p>$$<br>n_0&#x3D;n2+1<br>$$</p>
+<p><img src="/images/image-20220125162347279.png" alt="image-20220125162347279"></p>
+</li>
+<li><p><img src="/images/image-20220125180917113.png" alt="image-20220125180917113"></p>
+</li>
+</ul>
+<h3 id="顺序存储-1"><a href="#顺序存储-1" class="headerlink" title="顺序存储"></a>顺序存储</h3><p><strong>完全二叉树</strong></p>
+<ul>
+<li><p>i 的左孩子 2i</p>
+</li>
+<li><p>i 的右孩子 2i+1</p>
+</li>
+<li><p>i的父节点</p>
+</li>
+</ul>
+<h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">parent</span>;</span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220125193816761.png" alt="image-20220125193816761"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一棵空树</span></span><br><span class="line">BiTree root = <span class="literal">NULL</span>;</span><br><span class="line">root = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">root-&gt;data = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">root-rchild = <span class="literal">NULL</span>;</span><br><span class="line">root-&gt;lchild = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">BiTNode *p =(BiTNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">p-&gt;data = &#123;<span class="number">2</span>&#125;</span><br><span class="line">p-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">p-&gt;lchild = <span class="literal">NULL</span>;</span><br><span class="line">root-&gt;lchild = <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="先中后遍历"><a href="#先中后遍历" class="headerlink" title="先中后遍历"></a>先中后遍历</h3><p><strong>先序</strong>：根左右</p>
+<p><strong>中序</strong>：左根右</p>
+<p><strong>后序</strong>：左右根</p>
+<p><img src="/images/image-20220126212548102.png" alt="image-20220126212548102"></p>
+<ul>
+<li>先序<ul>
+<li>A B D G E C F</li>
+</ul>
+</li>
+<li>中序<ul>
+<li>D G B E A F C</li>
+</ul>
+</li>
+<li>后序<ul>
+<li>G D E B F C A</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">PreOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        visit(T);</span><br><span class="line">        PreOrder(T-&gt;lchild);</span><br><span class="line">        PreOrder(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>从你的全世界路过法</strong></p>
+<p>不全的补全，然后看路过的次数</p>
+<p><img src="/images/image-20220126213738125.png" alt="image-20220126213738125"></p>
+<p><strong>由遍历构造二叉树</strong></p>
+<p>每个单独的都有歧义，</p>
+<p>层次、先序、后序 任意一种 加上  <strong>中序</strong> 都可以完整确认一个 二叉树</p>
+<h3 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h3><p>辅助队列</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LevelOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">	LinkQueue Q;</span><br><span class="line">    InitQueue(Q);</span><br><span class="line">    BiTree p;</span><br><span class="line">    EnQueue(Q,T);</span><br><span class="line">    <span class="keyword">while</span>(!Empty(Q))&#123;</span><br><span class="line">        DeQueue(Q,p);</span><br><span class="line">        visit(p);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild!=<span class="literal">NULL</span>);</span><br><span class="line">        	EnQueue(Q,p-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild!=<span class="literal">NULL</span>);</span><br><span class="line">        	EnQueue(Q,p-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    <span class="type">char</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">&#125;BiTNode,*BiTree;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span>&#123;</span></span><br><span class="line">    BiTNode *data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LinkNode</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125;LinkNode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    LInkNode *front,*rear;</span><br><span class="line">&#125;LinkQueue;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h2><p>问题</p>
+<ul>
+<li>得从根结点开始遍历</li>
+<li></li>
+</ul>
+<p><img src="/images/image-20220128170945148.png" alt="image-20220128170945148"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ThreadNode</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ThreadNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">    <span class="type">int</span> ltag,rtag;</span><br><span class="line">&#125;ThreadNode,*ThreadTree;</span><br><span class="line">tag == <span class="number">0</span>;  <span class="comment">//指针指向孩子</span></span><br><span class="line">tag == <span class="number">1</span>;  <span class="comment">//指针指向线索（前驱or后继）</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>中序线索二叉树中找中序后继</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找到 以p为根的子树中 第一个被中序遍历的结点</span></span><br><span class="line">ThreadNode *<span class="title function_">Firstnode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(p-&gt;ltag==<span class="number">0</span>)</span><br><span class="line">        p=p-&gt;lchild;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 找到p的后继节点</span></span><br><span class="line">ThreadNode *<span class="title function_">Nextnode</span><span class="params">(ThreadNode *p)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(p-&gt;rtag==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> Firstnode(p-&gt;rchild);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> p-&gt;rchild;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Inorder</span><span class="params">(ThreadNode *T)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(ThreadNode *p=Firstnode(T);p!=<span class="literal">NULL</span>;p=Nextnode(p))</span><br><span class="line">    &#123;</span><br><span class="line">        visit(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>找前驱，进行逆向中序遍历</p>
+<p><img src="/images/image-20220128214012217.png" alt="image-20220128214012217"></p>
+<h2 id="树の存储结构"><a href="#树の存储结构" class="headerlink" title="树の存储结构"></a>树の存储结构</h2><p><strong>双亲表示法</strong></p>
+<p>每个节点保存指向父亲的“指针”</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAX_TREE_SIZE 100  <span class="comment">//最多节点数</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data;     </span><br><span class="line">    <span class="type">int</span> parent;       <span class="comment">//双亲位置域</span></span><br><span class="line">&#125;PTNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    PTNode nodes[MAX_TREE_SIZE];</span><br><span class="line">    <span class="type">int</span> n;  <span class="comment">//节点数</span></span><br><span class="line">&#125;PTree;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/images/image-20220129200919399.png" alt="image-20220129200919399"></p>
+<ul>
+<li>优点：查询指定节点的双亲更方便</li>
+<li>缺点：指定节点的孩子指针只能从头遍历</li>
+</ul>
+<p><strong>孩子表示法</strong></p>
+<p>顺序存储各个结点，每个节点保存孩子的链表头指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span>&#123;</span></span><br><span class="line">	<span class="type">int</span> child;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> *<span class="title">CTNode</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">CTNode</span> *<span class="title">firstChild</span>;</span></span><br><span class="line">&#125;CTBox;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    Ct</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="查找-1"><a href="#查找-1" class="headerlink" title="查找"></a>查找</h1><h2 id="概论"><a href="#概论" class="headerlink" title="概论"></a>概论</h2><p>查找长度</p>
+<p>查找运算中，需要对比关键字的次数称为查找长度</p>
+<p>ASL Average Search Length</p>
+<p>所有查找过程中进行关键字的比较次数。</p>
+<p>分查找成功和查找失败</p>
+<h2 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h2><h2 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h2><p>有序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> right = L.length<span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> mid=(left+right)/<span class="number">2</span>;</span><br><span class="line"><span class="keyword">while</span>(left&lt;=right)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(target&lt;L[mid])&#123;</span><br><span class="line">        right = mid<span class="number">-1</span>;</span><br><span class="line">        mid = (right+left)/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(target&gt;L[mid])&#123;</span><br><span class="line">        left = mid+<span class="number">1</span>;</span><br><span class="line">        mid = (right+left)/<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(target==L[mid])</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-20220413154541862.png" alt="image-20220413154541862"></p>
+<p><img src="/images/image-20220413154729954.png" alt="image-20220413154729954"></p>
+<p>当前low和high有奇数个元素，mid分割后左右节点个数一样</p>
+<p>low和high有偶数个元素，mid分割后，左边比右边少一个。</p>
+<ul>
+<li>折半查找的判定树是 平衡二叉树</li>
+<li>平衡二叉排序树</li>
+</ul>
+<p>折半查找的ASL</p>
+<h2 id="分块查找"><a href="#分块查找" class="headerlink" title="分块查找"></a>分块查找</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//索引表</span></span><br><span class="line"><span class="comment">//保存的每个一块的区间和 最大值</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    ElemType maxValue;</span><br><span class="line">    <span class="type">int</span> low,high;</span><br><span class="line">&#125;Index;</span><br></pre></td></tr></table></figure>
+
+<p>用折半查找来查询 索引。</p>
+<p>分为</p>
+<ul>
+<li>关键字等于target</li>
+<li>关键字不等于target<ul>
+<li>这个时候要看low对应的块。</li>
+</ul>
+</li>
+</ul>
+<p><strong>要用上面的那个折半查找的过程。来确定low的标</strong></p>
+<p><img src="/images/image-20220413161310961.png"></p>
+<p><strong>效率分析</strong><br>$$<br>n&#x3D;s\times b\总数量＝块数\times 块内元素数<br>$$<br>块数</p>
+<p>+ </p>
+<p><img src="/images/image-20220413161639596.png" alt="image-20220413161639596"></p>
+<p>+ </p>
+<p><img src="/images/image-20220413162318119.png" alt="image-20220413162318119"></p>
+<h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    ElemType keys[<span class="number">4</span>];		<span class="comment">//最多四个关键字</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> *child[<span class="number">5</span>];	<span class="comment">//最多五个孩子</span></span><br><span class="line">    <span class="type">int</span> num;                <span class="comment">//节点中几个关键字</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示意图</p>
+<p><img src="/images/image-20220413165414521.png" alt="image-20220413165414521"></p>
+<p>为了保证查找效率，每个节点内关键字太少不太行。</p>
+<p>规定m叉查找树，除了根节点</p>
+<ul>
+<li>$$<br>任何节点有 \lceil m&#x2F;2\rceil 个分叉，即 \lceil m&#x2F;2\rceil-1个关键字<br>$$</li>
+</ul>
+<p>同时</p>
+<ul>
+<li>要保证平衡 就是说任何一个结点的子树的高度要相同。</li>
+</ul>
+<p>B树 多路平衡查找树</p>
+<ul>
+<li>B树的阶：所有节点的孩子个数的最大值</li>
+</ul>
+<p>m阶B树满足以下条件</p>
+<ul>
+<li><p>每个结点至多有m棵子树，m-1个关键字</p>
+</li>
+<li><p>若<strong>根节点</strong>不是终端结点，则至少含有两个子树</p>
+</li>
+<li><p>$$<br>除根节点，，每个非叶子结点至少有，\lceil m&#x2F;2\rceil 个分叉，即 \lceil m&#x2F;2\rceil-1个关键字<br>$$</p>
+</li>
+<li><p>所有叶子节点出现在同一层次，并且不带信息。</p>
+</li>
+</ul>
+<p>示意图</p>
+<p>$$<br>  <br>$$</p>
+<p><img src="/images/image-20220413171150017.png" alt="image-20220413171150017"></p>
+<p>$$<br>P_0 是指针，P_{i-1}指向的结点小于K_i\qquad P_i指向的结点大于K_i<br>$$</p>
+<p>对于m阶B树来说</p>
+<p><strong>最小高度</strong><br>$$<br>每个结点是(m-1)个关键字，\times（1+m+m^2+\dots+m^{h-1}）这么多个结点\quad &#x3D;n\<br>n&#x3D;m^h-1<br>$$<br><strong>最大高度</strong><br>$$<br>第一层1个结点，第二层有两叉，后面每叉的节点里面有\lceil m&#x2F;2 \rceil-1个关键字。\lceil m&#x2F;2 \rceil叉<br>$$<br><img src="/images/image-20220413173233923.png" alt="image-20220413173233923"></p>
+<p>n个关键字的B树有n+1个叶子节点。</p>
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p>关键字与存储地址直接相关</p>
+<p>解决冲突：拉链法。示意图如下</p>
+<p>查找失败的ASL有两种</p>
+<ul>
+<li>第一种是对应的地址没有数据<ul>
+<li>这个时候是0或1（依真题而定）</li>
+</ul>
+</li>
+<li>第二种是对应的数据有东西，不过找不到</li>
+</ul>
+<p>下面是查找成功的。</p>
+<p><img src="/images/image-20220413192038300.png" alt="image-20220413192038300"></p>
+<p>冲突越多，查找的效率越低，所以说要如何设计一个</p>
+<p>冲突很少的哈希函数比较重要哈。</p>
+<p><strong>装填因子</strong></p>
+<p>也可以理解为查找失败的ASL</p>
+<p>表中记录数&#x2F;散列表的长度</p>
+<p><img src="/images/image-20220413192525031.png" alt="image-20220413192525031"></p>
+<h3 id="一些常见的哈希函数法"><a href="#一些常见的哈希函数法" class="headerlink" title="一些常见的哈希函数法"></a>一些常见的哈希函数法</h3><ul>
+<li>除留取余法<ul>
+<li>找一个小于但接近散列表长度的质数</li>
+</ul>
+</li>
+<li>直接取址法</li>
+<li>平方取中法</li>
+<li>数字分析法</li>
+</ul>
+<p>处理冲突的方法。</p>
+<ul>
+<li>拉链法<ul>
+<li>上面的说了</li>
+<li>又叫链接法，链地址法，把所有的“同义词”放在一个链表中、</li>
+</ul>
+</li>
+<li>开放定址法</li>
+</ul>
+<p>开放 空闲地址的意思</p>
+<p><img src="/images/image-20220413194238199.png" alt="image-20220413194238199"></p>
+<p>i是第几次冲突。d是人为设计的增量常数</p>
+<p>**看 括号里面是H(key) **</p>
+<ul>
+<li>线性探测法</li>
+</ul>
+<p>​	</p>
+<p>​				</p>
+<ul>
+<li>平方探测法</li>
+</ul>
+<p>0 1 -1  4 -4  9  -9</p>
+<p>强调一下负数是怎么取模的</p>
+<p>(-3)&#x2F;27 &#x3D; 24</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Demo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/">http://example.com/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">嗨害嗨</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/23/hello-world/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Hello World</div></div></a></div><div class="next-post pull-right"><a href="/2022/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">data structure</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Demo</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">1.</span> <span class="toc-text">线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="toc-number">1.1.</span> <span class="toc-text">顺序表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">顺序表的定义</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%86%E9%85%8D"><span class="toc-number">1.1.0.1.1.</span> <span class="toc-text">静态分配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D"><span class="toc-number">1.1.0.1.2.</span> <span class="toc-text">动态分配</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.0.1.3.</span> <span class="toc-text">特点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">顺序表的插入删除</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%92%E5%85%A5"><span class="toc-number">1.1.0.2.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.0.2.2.</span> <span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">顺序表的查找</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E4%BD%8D%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.0.3.1.</span> <span class="toc-text">按位查找</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E5%80%BC%E6%9F%A5%E6%89%BE"><span class="toc-number">1.1.0.3.2.</span> <span class="toc-text">按值查找</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">单链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">单链表定义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.1.</span> <span class="toc-text">链表的操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5-1"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">插入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4-1"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">建立</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">双链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.3.1.</span> <span class="toc-text">**初始化 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="toc-number">1.4.</span> <span class="toc-text">循环链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="toc-number">1.4.1.</span> <span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">静态链表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.5.1.</span> <span class="toc-text">定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8-amp-%E9%93%BE%E8%A1%A8"><span class="toc-number">1.6.</span> <span class="toc-text">顺序表&amp;链表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88-%E9%98%9F%E5%88%97"><span class="toc-number">2.</span> <span class="toc-text">栈 队列</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">2.1.</span> <span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C-1"><span class="toc-number">2.1.1.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%A0%88"><span class="toc-number">2.1.2.</span> <span class="toc-text">顺序栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-2"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E6%A0%88"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">进栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BA%E6%A0%88"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">出栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%BB%E5%85%83%E7%B4%A0"><span class="toc-number">2.1.2.4.</span> <span class="toc-text">读元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B1%E4%BA%AB%E6%A0%88"><span class="toc-number">2.1.2.5.</span> <span class="toc-text">共享栈</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%A0%88"><span class="toc-number">2.1.3.</span> <span class="toc-text">链栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E6%A0%88-1"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">进栈</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">2.2.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97"><span class="toc-number">2.2.1.</span> <span class="toc-text">顺序队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-3"><span class="toc-number">2.2.1.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A5%E9%98%9F"><span class="toc-number">2.2.1.2.</span> <span class="toc-text">入队</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%BA%E9%98%9F"><span class="toc-number">2.2.1.3.</span> <span class="toc-text">出队</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97"><span class="toc-number">2.2.2.</span> <span class="toc-text">链式队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97"><span class="toc-number">2.2.3.</span> <span class="toc-text">双端队列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D"><span class="toc-number">2.3.1.</span> <span class="toc-text">括号匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC"><span class="toc-number">2.3.2.</span> <span class="toc-text">表达式求值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92"><span class="toc-number">2.3.3.</span> <span class="toc-text">函数递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97%E5%BA%94%E7%94%A8"><span class="toc-number">2.3.4.</span> <span class="toc-text">队列应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%B2"><span class="toc-number">3.</span> <span class="toc-text">串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8"><span class="toc-number">3.1.</span> <span class="toc-text">顺序存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%B9%E9%85%8D"><span class="toc-number">3.2.</span> <span class="toc-text">匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.1.</span> <span class="toc-text">朴素模式匹配算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KMP"><span class="toc-number">3.2.2.</span> <span class="toc-text">KMP</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%80%83%E6%80%A7%E8%B4%A8"><span class="toc-number">4.1.</span> <span class="toc-text">常考性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">4.2.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">4.2.1.</span> <span class="toc-text">特殊二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%80%83%E6%80%A7%E8%B4%A8-1"><span class="toc-number">4.2.2.</span> <span class="toc-text">常考性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8-1"><span class="toc-number">4.2.3.</span> <span class="toc-text">顺序存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8"><span class="toc-number">4.2.4.</span> <span class="toc-text">链式存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E4%B8%AD%E5%90%8E%E9%81%8D%E5%8E%86"><span class="toc-number">4.2.5.</span> <span class="toc-text">先中后遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86"><span class="toc-number">4.2.6.</span> <span class="toc-text">层次遍历</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">4.3.</span> <span class="toc-text">线索二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E3%81%AE%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">4.4.</span> <span class="toc-text">树の存储结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE-1"><span class="toc-number">5.</span> <span class="toc-text">查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%AE%BA"><span class="toc-number">5.1.</span> <span class="toc-text">概论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E6%9F%A5%E6%89%BE"><span class="toc-number">5.2.</span> <span class="toc-text">顺序查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE"><span class="toc-number">5.3.</span> <span class="toc-text">折半查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE"><span class="toc-number">5.4.</span> <span class="toc-text">分块查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B%E6%A0%91"><span class="toc-number">5.5.</span> <span class="toc-text">B树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">5.6.</span> <span class="toc-text">哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0%E6%B3%95"><span class="toc-number">5.6.1.</span> <span class="toc-text">一些常见的哈希函数法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/t/" title="t"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="t"/></a><div class="content"><a class="title" href="/2022/04/23/t/" title="t">t</a><time datetime="2022-04-23T07:31:12.000Z" title="发表于 2022-04-23 15:31:12">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/23/hello-world/" title="Hello World"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/04/23/hello-world/" title="Hello World">Hello World</a><time datetime="2022-04-23T02:29:10.865Z" title="发表于 2022-04-23 10:29:10">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/" title="数据结构"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据结构"/></a><div class="content"><a class="title" href="/2022/01/22/%E6%9C%AC%E5%9C%B0%E5%9B%BE/" title="数据结构">数据结构</a><time datetime="2022-01-22T10:21:33.000Z" title="发表于 2022-01-22 18:21:33">2022-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="data structure"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="data structure"/></a><div class="content"><a class="title" href="/2022/01/10/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="data structure">data structure</a><time datetime="2022-01-10T14:24:57.926Z" title="发表于 2022-01-10 22:24:57">2022-01-10</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Demo</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

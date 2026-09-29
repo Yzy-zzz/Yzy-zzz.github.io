@@ -157,7 +157,7 @@ for (const post of files) {
   });
   const prior = previousBySource.get(post.source);
   if (oldContent !== null && !prior) throw new Error(`目标文章已存在，未覆盖：${destination}`);
-  if (oldContent !== null && prior?.outputHash && hash(oldContent) !== prior.outputHash) {
+  if (oldContent !== null && prior?.outputHash && hash(oldContent.replaceAll('\r\n', '\n')) !== prior.outputHash) {
     throw new Error(`导入副本已被手动修改：${destination}。请先把修改合并回原笔记，再运行同步。`);
   }
   if (await writeChanged(destination, content)) changed++;
@@ -170,7 +170,7 @@ for (const oldPost of previous.posts) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(oldPost.slug)) throw new Error('旧导入清单中有无效路径。');
   const destination = path.join(postDir, oldPost.slug + '.md');
   const content = await readFile(destination, 'utf8').catch(() => null);
-  if (content !== null && hash(content) === oldPost.outputHash) await unlink(destination);
+  if (content !== null && hash(content.replaceAll('\r\n', '\n')) === oldPost.outputHash) await unlink(destination);
 }
 await writeChanged(manifestPath, JSON.stringify({ version: 1, posts: manifestPosts }, null, 2) + '\n');
 console.log(`已同步 ${files.length} 篇文章，更新 ${changed} 篇。原 Markdown 保留在 ${rootDir}`);

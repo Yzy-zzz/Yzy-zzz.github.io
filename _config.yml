@@ -1,0 +1,85 @@
+title: 论文阅读笔记
+subtitle: Sketch · 网络测量 · 系统研究
+description: Yzy 的论文阅读与技术笔记，记录 Sketch 数据结构、滑动窗口与网络测量研究。
+keywords: Sketch, 论文阅读, 网络测量, 滑动窗口
+author: Yzy
+language: zh-CN
+timezone: Asia/Shanghai
+
+url: https://yzy-zzz.github.io
+root: /
+permalink: papers/:title/
+pretty_urls:
+  trailing_index: false
+  trailing_html: false
+
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+skip_render:
+  - images/**
+
+new_post_name: :title.md
+default_layout: post
+auto_spacing: false
+external_link:
+  enable: true
+  field: site
+  exclude: []
+filename_case: 1
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: false
+
+syntax_highlighter:
+highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace: '  '
+  wrap: true
+  hljs: false
+  exclude_languages:
+    - mermaid
+
+index_generator:
+  path: ''
+  per_page: 8
+  order_by: -date
+archive_generator:
+  per_page: 30
+  yearly: true
+  monthly: true
+category_generator:
+  per_page: 12
+tag_generator:
+  per_page: 12
+per_page: 8
+pagination_dir: page
+
+theme: next
+
+markdown:
+  preset: default
+  disableNunjucks: true
+  render:
+    html: true
+    breaks: false
+    linkify: true
+    typographer: false
+  plugins:
+    - markdown-it-mathjax3
+  anchors:
+    level: [1, 2, 3, 4, 5, 6]
+    permalink: false
+
+search:
+  path: search.json
+  field: post
+  content: true
+  format: raw
+
+deploy: {}

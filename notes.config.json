@@ -1,0 +1,6 @@
+{
+  "root": "..",
+  "directories": [".", "paper_notes"],
+  "timezone": "Asia/Shanghai",
+  "defaultCategory": "论文阅读"
+}

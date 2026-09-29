@@ -1,0 +1,107 @@
+scheme: Gemini
+darkmode: false
+
+menu:
+  home: / || fa fa-home
+  archives: /archives/ || fa fa-archive
+  categories: /categories/ || fa fa-th
+  tags: /tags/ || fa fa-tags
+
+sidebar:
+  position: left
+  display: always
+  padding: 24
+  offset: 16
+
+avatar:
+  url: /images/avatar.svg
+  rounded: true
+  rotated: false
+
+favicon:
+  small: /images/favicon.svg
+  medium: /images/favicon.svg
+  apple_touch_icon: /images/favicon.svg
+  safari_pinned_tab: /images/favicon.svg
+
+social:
+  GitHub: https://github.com/Yzy-zzz || fab fa-github
+social_icons:
+  enable: true
+  icons_only: false
+  transition: false
+
+toc:
+  enable: true
+  number: false
+  wrap: true
+  expand_all: false
+  max_depth: 3
+
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at:
+    enable: true
+    another_day: true
+  categories: true
+
+auto_excerpt:
+  enable: false
+  length: 180
+read_more_btn: true
+
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 2
+  unescape: false
+  preload: false
+
+math:
+  every_page: false
+  mathjax:
+    enable: false
+  katex:
+    enable: false
+
+mermaid:
+  enable: true
+  theme:
+    light: neutral
+    dark: dark
+
+motion:
+  enable: false
+
+font:
+  enable: true
+  host:
+  codes:
+    external: false
+    family: Consolas, monospace
+    size: 0.875
+  global:
+    external: false
+    family: 'Segoe UI, Microsoft YaHei, sans-serif'
+    size: 1
+  title:
+    external: false
+  headings:
+    external: false
+    family: 'Segoe UI, Microsoft YaHei, sans-serif'
+
+footer:
+  since: 2026
+  icon:
+    name: fa fa-book-open
+    animated: false
+    color: '#2e6f76'
+  copyright: Yzy
+  powered: true
+
+custom_file_path:
+  style: source/_data/styles.styl
+
+vendors:
+  local_search: /lib/search.js

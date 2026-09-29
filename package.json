@@ -1,0 +1,45 @@
+{
+  "name": "paper-reading-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "由论文 Markdown 笔记生成的 Hexo 静态博客",
+  "scripts": {
+    "sync": "node tools/import-notes.mjs",
+    "clean": "hexo clean",
+    "build": "hexo generate --bail",
+    "update": "npm run sync && npm run clean && npm run build",
+    "dev": "npm run sync && hexo clean && hexo server --ip 127.0.0.1 --port 4000",
+    "preview": "hexo server --static --ip 127.0.0.1 --port 4000",
+    "check": "node tools/verify-build.mjs",
+    "configure:pages": "node tools/configure-pages.mjs",
+    "publish": "node tools/publish.mjs"
+  },
+  "hexo": {
+    "version": "8.1.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "overrides": {
+    "markdown-it": "15.0.2",
+    "linkify-it": "6.1.0"
+  },
+  "dependencies": {
+    "hexo": "8.1.2",
+    "hexo-cli": "4.3.2",
+    "hexo-generator-archive": "2.0.0",
+    "hexo-generator-category": "2.0.0",
+    "hexo-generator-index": "4.0.0",
+    "hexo-generator-searchdb": "1.5.0",
+    "hexo-generator-tag": "2.0.0",
+    "hexo-renderer-ejs": "2.0.0",
+    "hexo-renderer-stylus": "3.0.1",
+    "hexo-server": "3.0.0",
+    "hexo-theme-next": "8.29.0",
+    "hexo-util": "4.0.0",
+    "js-yaml": "5.4.2",
+    "markdown-it": "15.0.2",
+    "markdown-it-anchor": "10.0.0",
+    "markdown-it-mathjax3": "5.2.0"
+  }
+}

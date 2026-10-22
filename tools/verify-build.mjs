@@ -1,6 +1,7 @@
 import { readFile, stat, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { slugize } from 'hexo-util';
 
 const blogDir = fileURLToPath(new URL('../', import.meta.url));
 const publicDir = path.join(blogDir, 'public');
@@ -14,7 +15,20 @@ let mathPages = 0;
 let mermaidPages = 0;
 const search = JSON.parse(await readFile(path.join(publicDir, 'search.json'), 'utf8'));
 if (search.length !== manifest.posts.length) errors.push('搜索索引文章数与导入清单不一致。');
+const homepage = await readFile(path.join(publicDir, 'index.html'), 'utf8');
+if (!homepage.includes('aria-label="论文分类"')) errors.push('首页缺少论文分类导航。');
+const categoryIndex = await readFile(path.join(publicDir, 'categories', 'index.html'), 'utf8');
+const categoryPaths = new Set();
 for (const post of manifest.posts) {
+  if (!post.categories?.length) errors.push(`文章缺少分类：${post.slug}`);
+  const segments = [];
+  for (const category of post.categories || []) {
+    segments.push(slugize(category, { transform: 1 }));
+    const route = 'categories/' + segments.join('/') + '/';
+    categoryPaths.add(route);
+    if (!await exists(path.join(publicDir, route, 'index.html'))) errors.push(`分类页面未生成：${route}`);
+    if (!categoryIndex.includes(category)) errors.push(`分类目录缺少方向：${category}`);
+  }
   const file = path.join(publicDir, 'papers', post.slug, 'index.html');
   if (!await exists(file)) { errors.push(`缺少文章：${post.slug}`); continue; }
   const html = await readFile(file, 'utf8');
@@ -58,4 +72,4 @@ if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`构建检查通过：${manifest.posts.length} 篇文章；${mathPages} 篇含已渲染公式；${mermaidPages} 篇含 Mermaid 图；本地资源与链接完整。`);
+console.log(`构建检查通过：${manifest.posts.length} 篇文章；${categoryPaths.size} 个分类与细分方向；${mathPages} 篇含已渲染公式；${mermaidPages} 篇含 Mermaid 图；本地资源与链接完整。`);

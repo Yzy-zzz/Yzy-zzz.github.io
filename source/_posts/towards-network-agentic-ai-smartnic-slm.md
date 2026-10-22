@@ -4,8 +4,8 @@ title: "Towards Network Agentic AI: Offloading Small Language Models to SmartNIC
 date: "2026-05-25 17:25:51"
 updated: "2026-05-25 17:25:51"
 permalink: papers/towards-network-agentic-ai-smartnic-slm/
-categories: ["网络与 AI"]
-tags: ["可编程网络","SmartNIC"]
+categories: ["大模型与智能体","网络智能与推理部署"]
+tags: ["大模型","小语言模型","智能体","可编程网络","SmartNIC"]
 excerpt: "一句话总结：本文首次探索了将网络 Agentic AI 的推理（reasoning）阶段卸载到 SmartNIC 上运行 Small Language Model (SLM) 的可行性，展示了在保持推理延迟与数据中心 GPU 同量级的同时，显著降低主机 CPU 和内存开销。"
 disableNunjucks: true
 comments: false

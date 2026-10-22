@@ -4,7 +4,7 @@ title: "《Evolving Sketch: Time-Decaying Frequency Estimation for Evolving Stre
 date: "2026-09-06 23:58:52"
 updated: "2026-09-06 23:58:52"
 permalink: papers/evolving-sketch/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","网络安全"]
 excerpt: "Evolving Sketch 通过“可连续重标定的时间衰减 Sketch + 基于应用反馈的在线 Adapter”，让频率估计中的衰减参数能够随数据流模式变化自动调整，从而避免固定衰减率在长期非平稳数据流中的失效。"
 disableNunjucks: true

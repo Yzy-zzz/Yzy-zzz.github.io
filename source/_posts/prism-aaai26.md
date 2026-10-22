@@ -4,8 +4,8 @@ title: "PRISM：面向自适应云-边 LLM 推理的隐私感知路由与语义�
 date: "2026-09-28 15:46:38"
 updated: "2026-09-28 23:59:37"
 permalink: papers/prism-aaai26/
-categories: ["论文阅读"]
-tags: ["Sketch","网络安全"]
+categories: ["大模型与智能体","隐私与协同推理"]
+tags: ["大模型","小语言模型","合成数据","网络安全"]
 excerpt: "PRISM 的核心思想是：先在边缘端判断“这条 prompt 到底有多敏感”，再根据风险把请求动态分流到云端、边缘端或云-边协作路径，并仅在协作路径中对敏感实体实施自适应的两层本地差分隐私扰动，最后利用“云端生成语义草图 + 边缘端结合原始上下文精修”的方式恢复回答质量。"
 disableNunjucks: true
 comments: false

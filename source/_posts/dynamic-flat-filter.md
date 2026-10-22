@@ -4,8 +4,8 @@ title: "Dynamic Flat Filter: A Unified Framework for Scalable and Stable Fingerp
 date: "2026-05-23 18:31:13"
 updated: "2026-05-23 18:31:13"
 permalink: papers/dynamic-flat-filter/
-categories: ["论文阅读"]
-tags: ["过滤器"]
+categories: ["数据结构","过滤器"]
+tags: ["合成数据","过滤器"]
 excerpt: "本文提出了 Dynamic Flat Filter (DFF)，一个将动态扩缩容逻辑与底层过滤器逻辑解耦的统一框架，使任意基于指纹的过滤器（如 Cuckoo Filter、Quotient Filter）都能以 $O(1)$ 时间复杂度实现增量式扩缩容，同时保持稳定的假阳性率（FPR）。"
 disableNunjucks: true
 comments: false

@@ -4,7 +4,7 @@ title: "Sliding Sketches: A Framework using Time Zones for Data Stream Processin
 date: "2026-06-04 15:43:59"
 updated: "2026-06-04 15:43:59"
 permalink: papers/sliding-sketches/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","过滤器"]
 excerpt: "这篇论文提出了一个名为 Sliding Sketch 的通用框架，通过引入\"时区\"（Time Zones）概念，使现有的各种 Sketch 数据结构能够高效地支持滑动窗口模型下的数据流查询任务。"
 disableNunjucks: true

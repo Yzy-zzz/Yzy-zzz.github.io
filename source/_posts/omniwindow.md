@@ -4,7 +4,7 @@ title: "《OmniWindow：面向网络遥测的通用高效窗口机制框架》�
 date: "2026-05-20 23:53:55"
 updated: "2026-07-15 00:32:17"
 permalink: papers/omniwindow/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","过滤器","可编程网络"]
 excerpt: "OmniWindow 将一个完整窗口拆分为可复用的细粒度子窗口，在交换机中只维护少量子窗口状态，再由控制器按需组合，从而在可编程交换机的严格资源约束下，统一支持滚动窗口、滑动窗口、可变长度窗口及应用定义窗口。"
 disableNunjucks: true

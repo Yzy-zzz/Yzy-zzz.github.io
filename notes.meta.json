@@ -1,1 +1,47 @@
-{}
+{
+  "Advancing_Sketch-Based_Network_Measurement_论文笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "ANT_论文阅读笔记.md": {
+    "categories": ["大模型与智能体", "智能体安全与评测"],
+    "excerpt": "ANT 将智能体执行日志与加密网络流量对齐，构建风险、场景、行为原语三层标签，研究如何仅凭流量侧信道审计智能体行为。"
+  },
+  "BARE_论文阅读笔记.md": {
+    "categories": ["大模型与智能体", "合成数据与微调"],
+    "excerpt": "BARE 用基础语言模型生成多样化候选数据，再由指令模型逐条修复，以少量种子样本兼顾合成数据的多样性和质量。"
+  },
+  "CycleSketch_阅读笔记.md": {
+    "categories": ["Sketch", "基数估计与超级传播者"],
+    "excerpt": "CycleSketch 将按 epoch 重置的去重过滤器、环形队列和候选竞争机制结合，在固定内存下连续检测滑动窗口内的超级传播者。"
+  },
+  "Dynamic_Flat_Filter_论文笔记.md": { "categories": ["数据结构", "过滤器"] },
+  "Evolving_Sketch_论文阅读笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "FlowLog_论文笔记.md": { "categories": ["Sketch", "分布式与可编程测量"] },
+  "Geedge_TSG_USENIX_Security_2026_阅读笔记.md": { "categories": ["网络安全", "防火墙与网络审查"] },
+  "GeminiSketch_阅读笔记.md": { "categories": ["Sketch", "图流测量"] },
+  "H-MOPS_论文笔记.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
+  "Hidden-Sketch_论文笔记.md": { "categories": ["Sketch", "频率估计与重流检测"] },
+  "ListGuard_论文笔记.md": { "categories": ["Sketch", "安全与隐私"] },
+  "MicroscopeSketch_论文笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "OmniWindow_论文笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "On the (Generative) Linear Sketching Problem - 阅读笔记.md": { "categories": ["Sketch", "线性草图与生成式恢复"] },
+  "paper_notes/JitterSketch_WWW2026.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "PatternSketch_阅读笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "PeriodicSketch_论文阅读笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "PIF-Identifier_论文笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "PRISM_AAAI26_阅读笔记.md": { "categories": ["大模型与智能体", "隐私与协同推理"] },
+  "RekindleSketch_论文阅读笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "RingSketch_论文阅读笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "RoundSketch_技术解读.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "SHE_论文阅读笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "slidedp_阅读笔记.md": { "categories": ["Sketch", "安全与隐私"] },
+  "Sliding_Sketches_论文笔记.md": { "categories": ["Sketch", "滑动窗口与时间衰减"] },
+  "SmolLM2_论文阅读笔记.md": {
+    "categories": ["大模型与智能体", "小语言模型训练"],
+    "excerpt": "SmolLM2 以数据质量、混合比例和分阶段训练为核心，展示如何训练开放的小语言模型，并公开模型、数据与训练流程。"
+  },
+  "Spatiotemporal_Sketch_Disaggregation_阅读笔记.md": { "categories": ["Sketch", "分布式与可编程测量"] },
+  "SWVFM_阅读笔记.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
+  "SWVHLL_阅读笔记.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
+  "TardySketch_reading_notes.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
+  "Towards_Network_Agentic_AI_SmartNIC_SLM_论文笔记.md": { "categories": ["大模型与智能体", "网络智能与推理部署"] },
+  "ZRing_论文分析报告.md": { "categories": ["Sketch", "基数估计与超级传播者"] }
+}

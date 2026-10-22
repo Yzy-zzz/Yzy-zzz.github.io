@@ -4,7 +4,7 @@ title: "《Identifying Hierarchical Super Spreaders in a Data Stream by Hot-Sepa
 date: "2026-07-06 10:14:32"
 updated: "2026-07-15 00:24:12"
 permalink: papers/h-mops/
-categories: ["论文阅读"]
+categories: ["Sketch","基数估计与超级传播者"]
 tags: ["Sketch","基数估计","过滤器","网络安全"]
 excerpt: "本文面向地毯式 DDoS、协同扫描等将攻击流量分散到多个 IP 或子网的隐蔽攻击，提出了可同时检测一维和二维层次化超级传播者的 H-MOPS：它通过“热点流与普通流分离”提高基数估计精度，并利用可合并的基数估计器准确计算层次流的条件传播度。"
 disableNunjucks: true

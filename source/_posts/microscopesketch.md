@@ -4,7 +4,7 @@ title: "《MicroscopeSketch: Accurate Sliding Estimation Using Adaptive Zooming�
 date: "2026-07-10 00:39:52"
 updated: "2026-07-14 22:24:47"
 permalink: papers/microscopesketch/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","网络安全"]
 excerpt: "MicroscopeSketch 通过一种类似\"共享浮点指数\"的 自适应缩放机制，在滑动窗口的多个子窗口之间共享计数尺度，以更少的内存保存更高精度的频率信息，并可作为通用组件嵌入 CM Sketch、CU Sketch、HeavyGuardian 和 SpaceSaving 等算法。"
 disableNunjucks: true

@@ -4,7 +4,7 @@ title: "《Measuring Item Freshness in Data Streams》论文阅读笔记"
 date: "2026-09-20 20:24:47"
 updated: "2026-09-20 20:24:47"
 permalink: papers/ringsketch/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch","滑动窗口","基数估计"]
 excerpt: "RingSketch 用一个持续旋转的 CLOCK 指针和多个小位宽计数器，在不显式存储 item ID 与 64-bit 时间戳的条件下，把“指针绕环运动的空间轨迹”转换成“距离上次出现的时间”，从而高精度、低内存地实时估计数据流中任意近期 item 的 freshness。"
 disableNunjucks: true

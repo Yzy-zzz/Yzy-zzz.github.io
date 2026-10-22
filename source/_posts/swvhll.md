@@ -4,7 +4,7 @@ title: "《A HyperLogLog-based Solution to Measuring Sliding Window Flow Spread 
 date: "2026-09-21 16:21:40"
 updated: "2026-09-21 16:21:40"
 permalink: papers/swvhll/
-categories: ["论文阅读"]
+categories: ["Sketch","基数估计与超级传播者"]
 tags: ["Sketch","滑动窗口","网络安全"]
 excerpt: "这篇论文解决的是“如何在高速、内存受限的网络设备上，对大量流在任意滑动时间窗口内的去重元素数（flow spread）进行高效估计”，核心方案是把 Sliding HyperLogLog 的寄存器虚拟化并共享到一个公共物理池中，再通过全局噪声估计进行校正。"
 disableNunjucks: true

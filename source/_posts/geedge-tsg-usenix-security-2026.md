@@ -4,7 +4,7 @@ title: "《Technical Analysis of the Geedge Networks Firewall Source Code Leak�
 date: "2026-08-17 19:29:42"
 updated: "2026-08-17 19:29:42"
 permalink: papers/geedge-tsg-usenix-security-2026/
-categories: ["网络安全"]
+categories: ["网络安全","防火墙与网络审查"]
 tags: ["网络安全"]
 excerpt: "作者对 2025 年泄露的 Geedge Networks 商业 DPI 源码进行系统化分析，成功重建并运行其核心产品 TSG，解析其数据面、协议解析、应用识别和封锁规则机制，并进一步从源码实现中提取 DNS/TCP/TLS/QUIC 等远程指纹，用真实网络测量证明部分 GFW 组件与 TSG 或其近似/历史版本高度一致。"
 disableNunjucks: true

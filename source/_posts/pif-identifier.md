@@ -4,7 +4,7 @@ title: "PIF-Identifier: Accurate Low-Overhead Identification of Persistent Infre
 date: "2026-05-23 19:07:03"
 updated: "2026-05-23 19:07:03"
 permalink: papers/pif-identifier/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch","过滤器","网络安全"]
 excerpt: "针对网络流量中 持续非频繁流 (Persistent Infrequent Flows, PIFs) 的识别问题，PIF-Identifier 通过设计紧凑的新流判别器和基于最小尺寸频率计数器的 PIF 跟踪器，以极低内存开销实现了 100% 精确率和超过 95% 的召回率。"
 disableNunjucks: true

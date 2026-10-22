@@ -4,7 +4,7 @@ title: "《Spatiotemporal Sketch Disaggregation: Streaming Analytics with Hetero
 date: "2026-09-13 23:36:15"
 updated: "2026-09-13 23:36:15"
 permalink: papers/spatiotemporal-sketch-disaggregation/
-categories: ["论文阅读"]
+categories: ["Sketch","分布式与可编程测量"]
 tags: ["Sketch","可编程网络","网络安全"]
 excerpt: "DiSketch 将传统 Sketch 沿网络路径做空间上的 per-row 分解，再通过“子 epoch + 按 key 的时间采样”对每个碎片进行时间维度上的自适应稀释，使不同内存容量、不同负载的交换机碎片达到近似一致的误差水平，最终在控制端重新拼装为一个网络级虚拟 Sketch。"
 disableNunjucks: true

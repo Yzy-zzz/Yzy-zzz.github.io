@@ -4,8 +4,8 @@ title: "ListGuard: Mitigating Pollution Attacks on In-Network Invertible Bloom L
 date: "2026-05-23 18:31:16"
 updated: "2026-05-23 18:31:16"
 permalink: papers/listguard/
-categories: ["论文阅读"]
-tags: ["可编程网络","SmartNIC","网络安全"]
+categories: ["Sketch","安全与隐私"]
+tags: ["Sketch","可编程网络","SmartNIC","网络安全"]
 excerpt: "针对 IBLT (Invertible Bloom Lookup Table) 在网络遥测系统中面临的污染攻击 (Pollution Attack) 问题，ListGuard 通过选择性采样完全碰撞流 (Completely Colliding Flows) 来恢复被攻击导致解码失败的流统计信息，无需修改 IBLT 本身结构。"
 disableNunjucks: true
 comments: false

@@ -4,7 +4,7 @@ title: "JitterSketch: Finding Jittery Flows in Network Streams 论文笔记"
 date: "2026-03-12 11:23:15"
 updated: "2026-03-12 11:23:15"
 permalink: papers/jittersketch-www2026/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch","过滤器"]
 excerpt: "本文提出了 JitterSketch，这是首个专门用于检测抖动流的基于 Sketch 的算法。网络抖动定义为网络流内数据包到达时间的突然波动，严重影响实时应用的服务质量 (QoS)。"
 disableNunjucks: true

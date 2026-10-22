@@ -4,7 +4,7 @@ title: "《On the (Generative) Linear Sketching Problem》阅读笔记"
 date: "2026-04-07 20:54:45"
 updated: "2026-04-07 20:54:45"
 permalink: papers/on-the-generative-linear-sketching-problem/
-categories: ["论文阅读"]
+categories: ["Sketch","线性草图与生成式恢复"]
 tags: ["Sketch"]
 excerpt: "本文研究了数据流 sketching 技术中的核心矛盾：如何在有限资源下实现准确、快速且真实的恢复。作者聚焦于线性 sketching 问题（形式为 Φf → f），通过三阶段分析："
 disableNunjucks: true

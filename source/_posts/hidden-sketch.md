@@ -4,8 +4,8 @@ title: "Hidden Sketch: A Space-Efficient Reversible Sketch for Tracking Frequent
 date: "2026-03-24 22:27:50"
 updated: "2026-03-24 22:27:50"
 permalink: papers/hidden-sketch/
-categories: ["论文阅读"]
-tags: ["Sketch","过滤器"]
+categories: ["Sketch","频率估计与重流检测"]
+tags: ["Sketch","合成数据","过滤器"]
 excerpt: "标题: Hidden Sketch: A Space-Efficient Reversible Sketch for Tracking Frequent Items in Data Streams 类型: Preprint 作者: Zicang Xu, Yuxuan Tian, Yuhan Wu, Tong Yang 单位: 北京大学 代…"
 disableNunjucks: true
 comments: false

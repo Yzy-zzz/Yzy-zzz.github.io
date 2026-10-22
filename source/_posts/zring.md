@@ -4,8 +4,8 @@ title: "ZRing 论文分析报告"
 date: "2026-04-22 17:26:04"
 updated: "2026-04-22 17:26:04"
 permalink: papers/zring/
-categories: ["论文阅读"]
-tags: ["Sketch","基数估计","网络安全"]
+categories: ["Sketch","基数估计与超级传播者"]
+tags: ["Sketch","合成数据","基数估计","网络安全"]
 excerpt: "加权基数估计 (Weighted Cardinality Estimation, WCE)：估计数据流中不同元素的总权重。"
 disableNunjucks: true
 comments: false

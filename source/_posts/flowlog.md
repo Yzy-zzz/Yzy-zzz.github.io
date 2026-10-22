@@ -4,7 +4,7 @@ title: "FlowLog: Byte-Level Flow Monitoring System in High-Throughput Networks"
 date: "2026-05-23 18:33:19"
 updated: "2026-05-23 18:33:19"
 permalink: papers/flowlog/
-categories: ["论文阅读"]
+categories: ["Sketch","分布式与可编程测量"]
 tags: ["Sketch","过滤器","可编程网络"]
 excerpt: "本文提出了 FlowLog，首个基于 Sketch 的端到端字节级流监控系统，通过 ByteSketch 算法、低开销传输子系统和抗偏斜实时分析子系统，在 400 Gbps 生产环境中实现了高精度的逐流字节数估计。"
 disableNunjucks: true

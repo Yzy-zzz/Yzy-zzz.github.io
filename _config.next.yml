@@ -102,6 +102,7 @@ footer:
 
 custom_file_path:
   style: source/_data/styles.styl
+  header: templates/topics.njk
 
 vendors:
   local_search: /lib/search.js

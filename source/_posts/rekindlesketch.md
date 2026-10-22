@@ -4,7 +4,7 @@ title: "RekindleSketch：面向近期持续流检测的到达驱动奖励机制 
 date: "2026-09-13 22:56:07"
 updated: "2026-09-13 22:56:07"
 permalink: papers/rekindlesketch/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch"]
 excerpt: "RekindleSketch 通过一个同时包含指数遗忘和到达奖励的 memory score，对流的“近期持续性”进行连续刻画，并用该分数驱动概率替换，从而在固定小内存中更稳定地保留近期持续流、快速清退历史流。"
 disableNunjucks: true

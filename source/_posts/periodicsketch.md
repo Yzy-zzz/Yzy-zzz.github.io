@@ -4,7 +4,7 @@ title: "《PeriodicSketch: Finding Periodic Items in Data Streams》阅读笔记
 date: "2026-09-01 22:33:06"
 updated: "2026-09-01 22:33:06"
 permalink: papers/periodicsketch/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch","过滤器"]
 excerpt: "论文摘要报告：PeriodicSketch 在只使用基线约 1/10 内存的情况下，AAE 平均降低约 737 倍、最高约 2019 倍，平均吞吐量约为基线的 3.1 倍。"
 disableNunjucks: true

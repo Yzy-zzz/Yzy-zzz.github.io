@@ -4,7 +4,7 @@ title: "Advancing Sketch-Based Network Measurement: A General, Fine-Grained, Bit
 date: "2026-05-20 23:50:06"
 updated: "2026-05-20 23:50:06"
 permalink: papers/advancing-sketch-based-network-measurement/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口"]
 excerpt: "标题: Advancing Sketch-Based Network Measurement: A General, Fine-Grained, Bit-Adaptive Sliding Window Framework 会议: IEEE/ACM IWQoS 2024 (International Symposium on Quality…"
 disableNunjucks: true

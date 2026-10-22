@@ -1,0 +1,11 @@
+<nav class="topic-nav" aria-label="论文分类">
+  <div class="topic-nav-title">按研究方向阅读</div>
+  {% for name in ['Sketch', '大模型与智能体', '数据结构', '网络安全'] %}
+    {% for category in site.categories.toArray() %}
+      {% if category.name === name and not category.parent %}
+        <a href="{{ url_for(category.path) }}"><span>{{ category.name }}</span><span class="topic-nav-count">{{ category.length }}</span></a>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+  <a class="topic-nav-all" href="{{ url_for('/categories/') }}">查看全部细分方向 <span aria-hidden="true">→</span></a>
+</nav>

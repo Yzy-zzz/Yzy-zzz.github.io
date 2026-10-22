@@ -4,7 +4,7 @@ title: "GeminiSketch 论文阅读笔记：面向时间图流的双矩阵 Sketch 
 date: "2026-09-06 15:17:32"
 updated: "2026-09-15 23:37:56"
 permalink: papers/geminisketch/
-categories: ["论文阅读"]
+categories: ["Sketch","图流测量"]
 tags: ["Sketch","滑动窗口"]
 excerpt: "GeminiSketch 通过“双矩阵轮换 + 链式哈希 + 虚拟 bucket 队列上的 Rolling-out 淘汰”，在固定内存的一遍式处理条件下，同时降低时间图流查询误差、加快时间范围查询，并避免每次窗口滑动都全表扫描或重建数据结构。"
 disableNunjucks: true

@@ -4,7 +4,7 @@ title: "SlideDP：面向滑动窗口基数估计的时间感知隐私 Sketch —
 date: "2026-09-14 09:27:39"
 updated: "2026-09-14 09:27:39"
 permalink: papers/slidedp/
-categories: ["论文阅读"]
+categories: ["Sketch","安全与隐私"]
 tags: ["Sketch","滑动窗口","基数估计","网络安全"]
 excerpt: "SlideDP 试图把“滑动窗口中的过期机制”和“本地差分隐私”同时塞进一个紧凑的 Sketch：用 1-bit register 表示元素信息、用小型 clock counter 表示时间有效性，再通过随机响应保护 register，并用有序 Poisson 采样降低更新开销。"
 disableNunjucks: true

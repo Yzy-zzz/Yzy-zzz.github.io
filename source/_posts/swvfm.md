@@ -4,7 +4,7 @@ title: "SWVFM：面向高速网络滑动窗口流基数测量的区间噪声消�
 date: "2026-09-21 01:54:36"
 updated: "2026-09-21 15:47:22"
 permalink: papers/swvfm/
-categories: ["论文阅读"]
+categories: ["Sketch","基数估计与超级传播者"]
 tags: ["Sketch","滑动窗口","基数估计","可编程网络"]
 excerpt: "SWVFM 将经典 FM 基数估计器改造成带时间戳的滑动窗口结构，再用虚拟寄存器共享支持海量并发流，并通过按流基数区间经验校准碰撞噪声，在静态、紧凑内存下显著提升多流滑动窗口基数估计精度。"
 disableNunjucks: true

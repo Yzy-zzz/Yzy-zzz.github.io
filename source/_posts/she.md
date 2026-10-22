@@ -4,7 +4,7 @@ title: "SHE: A Generic Framework for Data Stream Mining over Sliding Windows —
 date: "2026-09-20 15:15:26"
 updated: "2026-09-20 15:15:26"
 permalink: papers/she/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","基数估计","过滤器","可编程网络"]
 excerpt: "SHE 将“精确记录每个元素何时过期”改写为“让不同内存单元具有可推导的近似年龄，并在查询时只使用合适年龄的单元”，从而把 Bloom Filter、Bitmap、HyperLogLog、Count-Min Sketch、MinHash 等固定窗口算法，以极低的额外状态扩展到硬件友好的滑动窗口场景。"
 disableNunjucks: true

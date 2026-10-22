@@ -4,7 +4,7 @@ title: "《Round Sketch》论文阅读笔记：用“轮次标签”虚拟化滑
 date: "2026-05-20 23:34:15"
 updated: "2026-07-24 15:59:38"
 permalink: papers/roundsketch/
-categories: ["论文阅读"]
+categories: ["Sketch","滑动窗口与时间衰减"]
 tags: ["Sketch","滑动窗口","基数估计"]
 excerpt: "Round Sketch 通过给每个 Sketch 计数器增加轮次标签，将多个时间子窗口逻辑复用到一个物理 Sketch 上，并让普通数据包顺带完成旧状态收集与槽位重置，从而以约一半的片上内存实现高精度滑动窗口网络测量。"
 disableNunjucks: true

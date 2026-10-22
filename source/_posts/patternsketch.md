@@ -4,7 +4,7 @@ title: "PatternSketch 阅读笔记"
 date: "2026-05-06 15:13:13"
 updated: "2026-05-12 16:53:06"
 permalink: papers/patternsketch/
-categories: ["论文阅读"]
+categories: ["Sketch","时序特征与异常检测"]
 tags: ["Sketch","可编程网络"]
 excerpt: "网络流量测量是网络管理任务（QoS、异常检测、负载均衡等）的基础。时序流量模式检测（Time-series Traffic Pattern Detection）通过揭示跨多个时间周期的动态流行为，比传统的单周期流测量提供了更深入的洞察。然而，现有方案存在以下关键限制："
 disableNunjucks: true

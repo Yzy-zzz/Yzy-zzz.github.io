@@ -4,7 +4,7 @@ title: "TardySketch: A Framework for Cardinality Estimation Adaptable to Sliding
 date: "2026-09-13 20:02:27"
 updated: "2026-09-17 22:21:11"
 permalink: papers/tardysketch/
-categories: ["论文阅读"]
+categories: ["Sketch","基数估计与超级传播者"]
 tags: ["Sketch","滑动窗口","基数估计","网络安全"]
 excerpt: "TardySketch 通过 BP-Bitmap 记录 bucket 的相对访问顺序，再用 Gap 机制恢复因碰撞导致的时间断层、用 Slow-Down 机制把一次 bucket 清零延迟为多次“逻辑删除”，从而缓解滑动窗口 Bitmap 中因错误删除和过度删除引起的系统性低估。"
 disableNunjucks: true

@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile, mkdir, stat, copyFile, unlink } from 'node:fs/promises';
+import { readdir, readFile, writeFile, mkdir, stat, copyFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
@@ -65,10 +65,38 @@ function getExcerpt(body) {
   return escapeHtml(text.slice(0, 170) + (text.length > 170 ? '…' : ''));
 }
 
-function inferTags(source, body) {
+function inferCategories(source, body) {
+  const focus = (source + '\n' + body.slice(0, 1800)).toLowerCase();
+  if (/\bllm\b|language.model|语言模型|agentic|智能体/.test(focus)) {
+    if (/合成数据|synthetic.data/.test(focus)) return ['大模型与智能体', '合成数据与微调'];
+    if (/审计|auditing|benchmark|评测/.test(focus)) return ['大模型与智能体', '智能体安全与评测'];
+    if (/隐私|privacy/.test(focus)) return ['大模型与智能体', '隐私与协同推理'];
+    if (/smartnic|offload|卸载/.test(focus)) return ['大模型与智能体', '网络智能与推理部署'];
+    return ['大模型与智能体', '小语言模型训练'];
+  }
+  if (/geedge|censorship|网络审查/.test(focus)) return ['网络安全', '防火墙与网络审查'];
+  if (/sketch|草图/.test(focus)) {
+    if (/graph.stream|图流/.test(focus)) return ['Sketch', '图流测量'];
+    if (/privacy|隐私|pollution.attack/.test(focus)) return ['Sketch', '安全与隐私'];
+    if (/cardinality|基数|super.spreader|超级传播/.test(focus)) return ['Sketch', '基数估计与超级传播者'];
+    if (/periodic|persistent|freshness|jitter|pattern|周期|持续流|抖动|新鲜度/.test(focus)) return ['Sketch', '时序特征与异常检测'];
+    if (/disaggregation|分布式|byte.level|字节级/.test(focus)) return ['Sketch', '分布式与可编程测量'];
+    if (/sliding.window|滑动窗口|time.decay|时间衰减/.test(focus)) return ['Sketch', '滑动窗口与时间衰减'];
+    if (/linear.sketch|线性.*sketch|生成式/.test(focus)) return ['Sketch', '线性草图与生成式恢复'];
+    return ['Sketch', '频率估计与重流检测'];
+  }
+  if (/filter|过滤器/.test(focus)) return ['数据结构', '过滤器'];
+  return [config.defaultCategory];
+}
+
+function inferTags(source, body, categories) {
   const preview = (source + '\n' + body.slice(0, 6000)).toLowerCase();
   const tags = [];
-  if (/sketch/.test(preview)) tags.push('Sketch');
+  if (categories[0] === 'Sketch') tags.push('Sketch');
+  if (categories[0] === '大模型与智能体') tags.push('大模型');
+  if (/\bslm\b|small.language.model|小语言模型/.test(preview)) tags.push('小语言模型');
+  if (/agent|智能体/.test(preview)) tags.push('智能体');
+  if (/synthetic.data|合成数据/.test(preview)) tags.push('合成数据');
   if (/滑动窗口|sliding.window|rolling.out/.test(preview)) tags.push('滑动窗口');
   if (/cardinality|基数估计|基数测量|超点/.test(preview)) tags.push('基数估计');
   if (/filter|过滤器/.test(preview)) tags.push('过滤器');
@@ -102,9 +130,24 @@ for (const directory of config.directories) {
     const updated = metadata.updated ? formatDate(metadata.updated) : formatDate(info.mtime);
     let body = parsed.body;
     if (heading && body.slice(0, heading.index).trim() === '') body = body.slice(heading.index + heading[0].length).trimStart();
-    const category = /Geedge/i.test(source) ? '网络安全' : /Agentic|SmartNIC_SLM/i.test(source) ? '网络与 AI' : config.defaultCategory;
-    files.push({ source, fullPath, title, slug, date, updated, body, metadata, category });
+    files.push({ source, fullPath, title, slug, date, updated, body, metadata });
   }
+}
+// A moved or temporarily unavailable source must not silently remove a published note.
+const sources = new Set(files.map(post => post.source));
+for (const prior of previous.posts) {
+  if (sources.has(prior.source)) continue;
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(prior.slug)) throw new Error('旧导入清单中有无效路径。');
+  const fullPath = path.resolve(rootDir, prior.source);
+  if (!within(rootDir, fullPath) || within(blogDir, fullPath)) throw new Error('旧导入清单中有无效源文件路径。');
+  const destination = path.join(postDir, prior.slug + '.md');
+  const content = (await readFile(destination, 'utf8')).replaceAll('\r\n', '\n');
+  if (prior.outputHash && hash(content) !== prior.outputHash) {
+    throw new Error(`导入副本已被手动修改：${destination}。请先保留或合并修改，再运行同步。`);
+  }
+  const parsed = splitFrontMatter(content);
+  files.push({ ...prior, fullPath, body: parsed.body, metadata: { ...parsed.data, ...overrides[prior.source] } });
+  console.warn(`保留已有文章（原文件暂不可用）：${prior.source}`);
 }
 files.sort((a, b) => a.source.localeCompare(b.source, 'en'));
 if (!files.length) throw new Error(`没有找到 Markdown。请检查 notes.config.json 的 root：${rootDir}`);
@@ -141,8 +184,8 @@ for (const post of files) {
     }
   }
   const body = post.body.replace(linkPattern, value => replacements.get(value) || value);
-  const tags = post.metadata.tags || inferTags(post.source, body);
-  const categories = post.metadata.categories || [post.category];
+  const categories = post.metadata.categories || inferCategories(post.source, body);
+  const tags = post.metadata.tags || inferTags(post.source, body, categories);
   const content = [
     '---', 'layout: post', `title: ${quote(post.title)}`, `date: ${quote(post.date)}`,
     `updated: ${quote(post.updated)}`, `permalink: papers/${post.slug}/`,
@@ -162,15 +205,9 @@ for (const post of files) {
   }
   if (await writeChanged(destination, content)) changed++;
   manifestPosts.push({ source: post.source, slug: post.slug, title: post.title, date: post.date, updated: post.updated,
+    categories, tags,
     math: /\$[^\n$]+\$|\$\$/m.test(body), mermaid: /^\s*```mermaid/m.test(body),
-    outputHash: hash(content), sourceHash: hash(await readFile(post.fullPath)) });
-}
-for (const oldPost of previous.posts) {
-  if (slugs.has(oldPost.slug)) continue;
-  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(oldPost.slug)) throw new Error('旧导入清单中有无效路径。');
-  const destination = path.join(postDir, oldPost.slug + '.md');
-  const content = await readFile(destination, 'utf8').catch(() => null);
-  if (content !== null && hash(content.replaceAll('\r\n', '\n')) === oldPost.outputHash) await unlink(destination);
+    outputHash: hash(content), sourceHash: post.sourceHash || hash(await readFile(post.fullPath)) });
 }
 await writeChanged(manifestPath, JSON.stringify({ version: 1, posts: manifestPosts }, null, 2) + '\n');
 console.log(`已同步 ${files.length} 篇文章，更新 ${changed} 篇。原 Markdown 保留在 ${rootDir}`);

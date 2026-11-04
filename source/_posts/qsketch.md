@@ -4,7 +4,7 @@ title: "QSketch：面向流式加权基数估计的高效量化 Sketch"
 date: "2026-11-02 20:51:38"
 updated: "2026-11-02 20:51:38"
 permalink: papers/qsketch/
-categories: ["Sketch","基数估计与超级传播者"]
+categories: ["Sketch","基数估计"]
 tags: ["Sketch","基数估计","网络安全"]
 excerpt: "QSketch 通过对指数分布寄存器做二进制对数量化来大幅压缩内存，再用量化后分布的 MLE 恢复加权基数；QSketch-Dyn 则进一步把每次“寄存器是否被新元素改变”视为一次随机采样事件，通过逆概率校正实现在线、无偏、近常数时间的加权基数追踪。"
 disableNunjucks: true

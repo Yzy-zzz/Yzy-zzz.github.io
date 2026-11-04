@@ -4,7 +4,7 @@ title: "ZRing：面向全动态数据流的加权基数估计 —— 论文阅�
 date: "2026-11-02 20:17:17"
 updated: "2026-11-02 20:17:17"
 permalink: papers/zring/
-categories: ["Sketch","基数估计与超级传播者"]
+categories: ["Sketch","基数估计"]
 tags: ["Sketch","基数估计"]
 excerpt: "论文通过把加权元素映射到二维 Sketch，并让每个单元在有限环上进行模加/模减，使删除操作成为插入操作的代数逆；随后分别用 MLP 和动态 Martingale 估计器从 Sketch 状态恢复全动态数据流中的加权去重总和。"
 disableNunjucks: true

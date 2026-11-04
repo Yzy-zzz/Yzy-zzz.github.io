@@ -4,7 +4,7 @@ title: "《A Sketch Enhanced with a Sliding Window for Continuous Detection of S
 date: "2026-10-18 16:07:38"
 updated: "2026-10-18 16:07:38"
 permalink: papers/cyclesketch/
-categories: ["Sketch","基数估计与超级传播者"]
+categories: ["Sketch","超级传播者检测"]
 tags: ["Sketch","滑动窗口","基数估计","过滤器","网络安全"]
 excerpt: "CycleSketch 将按 epoch 重置的去重过滤器、环形队列和候选竞争机制结合，在固定内存下连续检测滑动窗口内的超级传播者。"
 disableNunjucks: true

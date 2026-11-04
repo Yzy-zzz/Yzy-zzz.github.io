@@ -4,7 +4,7 @@ title: "《Lasso: Accurate and Efficient Detection of Long-Lived Sparse Items in
 date: "2026-10-26 11:48:48"
 updated: "2026-10-26 22:09:59"
 permalink: papers/lasso/
-categories: ["Sketch","时序特征与异常检测"]
+categories: ["Sketch","特定流型检测"]
 tags: ["Sketch","可编程网络","网络安全"]
 excerpt: "Lasso 通过同时利用“频率与持久性的偏差”来快速淘汰不够稀疏的候选，并利用最近出现时间进行细粒度的长期对象保护，从而在极小内存和强哈希碰撞下仍能准确检测 long-lived sparse items，同时避免 flag reset、概率替换和复杂算术，使算法可以实际部署到 CPU、Tofino 可编程交换机和 FPGA 上。"
 disableNunjucks: true

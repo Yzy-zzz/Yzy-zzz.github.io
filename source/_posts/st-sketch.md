@@ -4,7 +4,7 @@ title: "《Resource-efficient Real-time Detection of Transitional Items in High-
 date: "2026-11-01 10:53:02"
 updated: "2026-11-01 10:53:02"
 permalink: papers/st-sketch/
-categories: ["Sketch","时序特征与异常检测"]
+categories: ["Sketch","特定流型检测"]
 tags: ["Sketch","过滤器"]
 excerpt: "作者把它称为 transitional item（转移项 / 状态转移项）。"
 disableNunjucks: true

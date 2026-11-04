@@ -219,6 +219,26 @@
       "sourceHash": "6407dec3fbeeea3773620c575aadcc0344d1b30ff548a4e2fe7fb3c65a6f1184"
     },
     {
+      "source": "lasso_阅读笔记.md",
+      "slug": "lasso",
+      "title": "《Lasso: Accurate and Efficient Detection of Long-Lived Sparse Items in High-Speed Data Streams》阅读笔记",
+      "date": "2026-10-26 11:48:48",
+      "updated": "2026-10-26 22:09:59",
+      "categories": [
+        "Sketch",
+        "时序特征与异常检测"
+      ],
+      "tags": [
+        "Sketch",
+        "可编程网络",
+        "网络安全"
+      ],
+      "math": true,
+      "mermaid": false,
+      "outputHash": "6789964950c078a2cf5ec9b1b32f4a52b4b31ac536fb29fbce9af55fa17dfccb",
+      "sourceHash": "eebdcd16d44bb4bb1f36627860204a281b65ffe205bf05b5336dfa1b011800ec"
+    },
+    {
       "source": "ListGuard_论文笔记.md",
       "slug": "listguard",
       "title": "ListGuard: Mitigating Pollution Attacks on In-Network Invertible Bloom Lookup Tables",
@@ -397,6 +417,26 @@
       "sourceHash": "ff0249a586c609688e683b528cd7be8622c3981b86eab7e7ac1cb4017587fb68"
     },
     {
+      "source": "qsketch_reading_notes.md",
+      "slug": "qsketch",
+      "title": "QSketch：面向流式加权基数估计的高效量化 Sketch",
+      "date": "2026-11-02 20:51:38",
+      "updated": "2026-11-02 20:51:38",
+      "categories": [
+        "Sketch",
+        "基数估计与超级传播者"
+      ],
+      "tags": [
+        "Sketch",
+        "基数估计",
+        "网络安全"
+      ],
+      "math": true,
+      "mermaid": true,
+      "outputHash": "c043ba3ff9b4a02bc0354ac6a8eb279a13dd40fe87884330a2920b5b51aacd4a",
+      "sourceHash": "5ab1248165e47403999347a6b2a5c2615d3198be854e65f90ade0ea9a50cfb20"
+    },
+    {
       "source": "RekindleSketch_论文阅读笔记.md",
       "slug": "rekindlesketch",
       "title": "RekindleSketch：面向近期持续流检测的到达驱动奖励机制 —— 论文阅读笔记",
@@ -542,7 +582,7 @@
       "slug": "spatiotemporal-sketch-disaggregation",
       "title": "《Spatiotemporal Sketch Disaggregation: Streaming Analytics with Heterogeneous Resources》阅读笔记",
       "date": "2026-09-13 23:36:15",
-      "updated": "2026-09-13 23:36:15",
+      "updated": "2026-10-26 22:09:57",
       "categories": [
         "Sketch",
         "分布式与可编程测量"
@@ -554,8 +594,27 @@
       ],
       "math": true,
       "mermaid": true,
-      "outputHash": "08068e03a0826be4d23c55e3eafbacbdfc6d5ea6e7221a1db81eb6926595470b",
+      "outputHash": "658b9f215f3e480f744dc6ad21993d74e5f3fd6748eb93137675a52dad5f6d28",
       "sourceHash": "3921b30cac0a6aa5d5c0af67f3924d14c8cf94ebdf5f62916e960a4a0efd8ea7"
+    },
+    {
+      "source": "ST_Sketch_paper_reading_notes.md",
+      "slug": "st-sketch",
+      "title": "《Resource-efficient Real-time Detection of Transitional Items in High-speed Data Streams》阅读笔记",
+      "date": "2026-11-01 10:53:02",
+      "updated": "2026-11-01 10:53:02",
+      "categories": [
+        "Sketch",
+        "时序特征与异常检测"
+      ],
+      "tags": [
+        "Sketch",
+        "过滤器"
+      ],
+      "math": true,
+      "mermaid": true,
+      "outputHash": "3a647ced39570a63cc544d14848cdc1f180cda6e71fcf5684ec2e7a0d25928ae",
+      "sourceHash": "fc1bcc4acb53067022b53ff5a1d88b8c638a273cc6ea3c7c2b64d7825fc70e6e"
     },
     {
       "source": "SWVFM_阅读笔记.md",
@@ -583,7 +642,7 @@
       "slug": "swvhll",
       "title": "《A HyperLogLog-based Solution to Measuring Sliding Window Flow Spread in High-Speed Networks》阅读笔记",
       "date": "2026-09-21 16:21:40",
-      "updated": "2026-09-21 16:21:40",
+      "updated": "2026-11-02 17:38:51",
       "categories": [
         "Sketch",
         "基数估计与超级传播者"
@@ -595,8 +654,8 @@
       ],
       "math": true,
       "mermaid": true,
-      "outputHash": "4eb17ca4908958a24a6158996f73ebfbf12da5d178585d451767f1d11e0437a0",
-      "sourceHash": "827a4878e96077e6788fa490f7d96c936104c3d9326d1f2db85a218358131375"
+      "outputHash": "179856ed73e1144c8b2d95282869a3f0e7e8a95a3a8a3a648855a8d3edfe6ad7",
+      "sourceHash": "de96472c01624eb1825ca1ca1f88494a27bac85439c02094ef6ac74e56aec24f"
     },
     {
       "source": "TardySketch_reading_notes.md",
@@ -642,25 +701,23 @@
       "sourceHash": "6982b7f145f36637caf1bebe768282e381f54dd5bc3bfbdbe691880462f09ef8"
     },
     {
-      "source": "ZRing_论文分析报告.md",
+      "source": "ZRing_论文阅读笔记.md",
       "slug": "zring",
-      "title": "ZRing 论文分析报告",
-      "date": "2026-04-22 17:26:04",
-      "updated": "2026-04-22 17:26:04",
+      "title": "ZRing：面向全动态数据流的加权基数估计 —— 论文阅读笔记与技术解读",
+      "date": "2026-11-02 20:17:17",
+      "updated": "2026-11-02 20:17:17",
       "categories": [
         "Sketch",
         "基数估计与超级传播者"
       ],
       "tags": [
         "Sketch",
-        "合成数据",
-        "基数估计",
-        "网络安全"
+        "基数估计"
       ],
       "math": true,
-      "mermaid": false,
-      "outputHash": "b11cd4b169c6d34fd50489a309a37dbfaadf45ff75c3ac358527b4e0fc3ffa0a",
-      "sourceHash": "c51a92905a7f379364e54801d2205526585f1eda8095a59fd4404ba89158a5ac"
+      "mermaid": true,
+      "outputHash": "64092373be969b3563137535e33bf057bbb2cd7b736b8613b7c91b40e6c41026",
+      "sourceHash": "88a962b1a0df18eb50c0dd63c5b4078859b4329076daa4087631d7d2eb2379f7"
     }
   ]
 }

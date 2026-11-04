@@ -43,5 +43,8 @@
   "SWVHLL_阅读笔记.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
   "TardySketch_reading_notes.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
   "Towards_Network_Agentic_AI_SmartNIC_SLM_论文笔记.md": { "categories": ["大模型与智能体", "网络智能与推理部署"] },
-  "ZRing_论文分析报告.md": { "categories": ["Sketch", "基数估计与超级传播者"] }
+  "lasso_阅读笔记.md": { "categories": ["Sketch", "时序特征与异常检测"] },
+  "qsketch_reading_notes.md": { "categories": ["Sketch", "基数估计与超级传播者"] },
+  "ST_Sketch_paper_reading_notes.md": { "slug": "st-sketch", "categories": ["Sketch", "时序特征与异常检测"] },
+  "ZRing_论文阅读笔记.md": { "categories": ["Sketch", "基数估计与超级传播者"] }
 }

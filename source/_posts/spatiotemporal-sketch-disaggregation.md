@@ -2,7 +2,7 @@
 layout: post
 title: "《Spatiotemporal Sketch Disaggregation: Streaming Analytics with Heterogeneous Resources》阅读笔记"
 date: "2026-09-13 23:36:15"
-updated: "2026-09-13 23:36:15"
+updated: "2026-10-26 22:09:57"
 permalink: papers/spatiotemporal-sketch-disaggregation/
 categories: ["Sketch","分布式与可编程测量"]
 tags: ["Sketch","可编程网络","网络安全"]

@@ -2,7 +2,7 @@
 layout: post
 title: "《A HyperLogLog-based Solution to Measuring Sliding Window Flow Spread in High-Speed Networks》阅读笔记"
 date: "2026-09-21 16:21:40"
-updated: "2026-09-21 16:21:40"
+updated: "2026-11-02 17:38:51"
 permalink: papers/swvhll/
 categories: ["Sketch","基数估计与超级传播者"]
 tags: ["Sketch","滑动窗口","网络安全"]
@@ -142,7 +142,7 @@ $$
 
 作者的切入非常直接：
 
-> **既然 VATE 的根本瓶颈来自 Bitmap，那么把底层 distinct-count estimator 换成动态范围更大的 HLL；然后再解决 HLL 在滑动窗口下无法“删除过期最大值”的问题；最后通过虚拟化让大量流共享一个 HLL 单元池。**
+> **既然 VATE 的根本瓶颈来自 Bitmap，那么把底层 distinct-count estimator 换成动态范围更大的 HLL；然后再解决 HLL 在滑动窗口下无法“删除过期最大值”的问题；最后通过虚拟化让大量流共享一个 HLL 单元池。**	
 
 这形成三层逻辑：
 
@@ -218,7 +218,7 @@ $$
 
 但在滑动窗口里，当前最大值对应的元素一旦过期，必须知道**第二大、第三大……候选值中谁仍在窗口内**。普通 HLL 已经把这些历史信息丢掉了，因此无法恢复。
 
-#### 内部机理
+#### 内部机理 
 
 论文图 2 把每个 HLL register 扩展成一个链表单元（SW-HLL unit）。每个节点保存：
 

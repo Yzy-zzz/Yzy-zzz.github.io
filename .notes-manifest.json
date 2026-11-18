@@ -199,6 +199,27 @@
       "sourceHash": "88da6b1563dcb66887d30d83228ce18deccdc58f2bc703264d858f225ffbee2b"
     },
     {
+      "source": "H-TD_Sketch_深度阅读笔记.md",
+      "slug": "h-td-sketch",
+      "title": "H-TD Sketch：一套同时识别多类超级主机的 H 形 Sketch——深度阅读笔记",
+      "date": "2026-11-17 14:56:08",
+      "updated": "2026-11-18 09:42:16",
+      "categories": [
+        "Sketch",
+        "超级传播者检测"
+      ],
+      "tags": [
+        "Sketch",
+        "基数估计",
+        "过滤器",
+        "网络安全"
+      ],
+      "math": true,
+      "mermaid": true,
+      "outputHash": "b2a2763c251d4785f03651cc23bdbd8d61334568b984e478d1ac7de3f2a20a48",
+      "sourceHash": "ece31a330c4ac9f846b9ba6589902e1830df01ca82a1e6dba1332c670c0157f9"
+    },
+    {
       "source": "Hidden-Sketch_论文笔记.md",
       "slug": "hidden-sketch",
       "title": "Hidden Sketch: A Space-Efficient Reversible Sketch for Tracking Frequent Items in Data Streams 论文阅读笔记",
@@ -437,6 +458,26 @@
       "sourceHash": "5ab1248165e47403999347a6b2a5c2615d3198be854e65f90ade0ea9a50cfb20"
     },
     {
+      "source": "Real_Money_Fake_Models_论文阅读笔记.md",
+      "slug": "real-money-fake-models",
+      "title": "Real Money, Fake Models：Shadow API 的模型身份欺骗与可信性审计——深度论文阅读笔记",
+      "date": "2026-11-17 22:19:28",
+      "updated": "2026-11-17 22:19:28",
+      "categories": [
+        "大模型与智能体",
+        "模型安全与可信审计"
+      ],
+      "tags": [
+        "大模型",
+        "智能体",
+        "网络安全"
+      ],
+      "math": true,
+      "mermaid": false,
+      "outputHash": "4518dd49d1cf5835e4f24bdf8c4c5fd5a7ffd6f1342199792bae7d1d86dfdcda",
+      "sourceHash": "3e933f61b2228bedfe241f851215a2ea7f388411d137d98a138760715b76851c"
+    },
+    {
       "source": "RekindleSketch_论文阅读笔记.md",
       "slug": "rekindlesketch",
       "title": "RekindleSketch：面向近期持续流检测的到达驱动奖励机制 —— 论文阅读笔记",
@@ -493,6 +534,25 @@
       "mermaid": false,
       "outputHash": "042ae7bf3ab24b7f47ba44d78832d8dcecaeb4829de31db3e6a218bd3de66afb",
       "sourceHash": "09d9dd0c6409346e7c081b20dbf961340a8a7d5435cdf59e7ec8833dd04f2bfb"
+    },
+    {
+      "source": "RT-MD_Paper_Reading_Notes_CN.md",
+      "slug": "rt-md",
+      "title": "RT-MD 论文精读：从“检测恶意域名”转向“发现泄露主机”",
+      "date": "2026-11-18 01:46:14",
+      "updated": "2026-11-18 10:10:23",
+      "categories": [
+        "网络安全",
+        "恶意流量与数据外泄检测"
+      ],
+      "tags": [
+        "过滤器",
+        "网络安全"
+      ],
+      "math": true,
+      "mermaid": false,
+      "outputHash": "71a4a6ccb0bc29459f49a814d0cb7acb1b078e7de0630a7d68418b77b176f731",
+      "sourceHash": "ce056f7f4e8360bb632795304bac34259d661c110ba8563feeaa672d5d5f12a7"
     },
     {
       "source": "SHE_论文阅读笔记.md",
